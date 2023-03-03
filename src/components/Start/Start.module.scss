@@ -1,4 +1,31 @@
 .wrapper {
   background: url("./img/MainBackground.jpg") no-repeat center/cover;
   height: 100%;
+  padding: 0 100px;
+  .contentWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 40px 0;
+    position: relative;
+    top: 15%;
+    .bigSign {
+      font-family: "Rubik";
+      font-weight: 700;
+      font-size: 56px;
+      color: #ffffff;
+      max-width: 700px;
+      line-height: 60px;
+    }
+    .btn {
+      background-color: #f4c038;
+      border-radius: 50px;
+      font-family: "Rubik";
+      font-weight: 500;
+      font-size: 16px;
+      color: #20222a;
+      padding: 17px 30px;
+    }
+  }
 }
