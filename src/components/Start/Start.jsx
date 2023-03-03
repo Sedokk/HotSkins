@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom"
 import style from "./Start.module.scss"
 
 const Start = () => {
@@ -8,7 +9,9 @@ const Start = () => {
         <h1 className={style.bigSign}>
           Принимайте платежи от пользователей с помощью скинов CS:GO и DOTA 2
         </h1>
-        <button className={style.btn}>Присоединиться</button>
+        <Link to='/reg' className={style.btn}>
+          Присоединиться
+        </Link>
       </div>
     </div>
   )
