@@ -5,6 +5,18 @@
   justify-content: center;
   padding: 40px 0 32px;
   gap: 40px 0;
+  position: relative;
+  &::after {
+    content: "";
+    display: block;
+    height: 1px;
+    background-color: #3d4554;
+    width: 90%;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+  }
   .top {
     display: flex;
     align-items: center;
