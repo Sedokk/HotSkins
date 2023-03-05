@@ -1,0 +1,90 @@
+.topSection {
+  background-color: #272e3b;
+  padding: 40px 0 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 40px 0;
+  position: relative;
+  .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 8px 0;
+    .operation {
+      font-family: "Rubik";
+      font-weight: 700;
+      font-size: 48px;
+      line-height: 56px;
+      color: #ffffff;
+    }
+    .accountInfo {
+      font-family: "Rubik";
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 22px;
+      color: rgba(255, 255, 255, 0.5);
+    }
+  }
+  .btnWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    .gameBtn {
+      border: 1px solid #3d4554;
+      padding: 24px 55px 24px 80px;
+      font-family: "Rubik";
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 24px;
+      background-color: #272e3b;
+      color: #ffffff;
+      position: relative;
+      &::after {
+        content: "";
+        display: block;
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: 50%;
+        left: 20px;
+        z-index: 100;
+        transform: translateY(-50%);
+      }
+      &.csBtn::after {
+        background: url("./img/games/CSGO.jpg") no-repeat center/cover;
+      }
+      &.dotaBtn::after {
+        background: url("./img/games/DOTA2.jpg") no-repeat center/cover;
+      }
+      &:first-child {
+        border-radius: 16px 0 0 16px;
+      }
+      &:last-child {
+        border-radius: 0 16px 16px 0;
+      }
+      &.activeBtn {
+        border: 2px solid #f4c038;
+        background-color: #efbc3a1a;
+      }
+    }
+  }
+  .refreshBtn {
+    font-family: "Rubik";
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color: #ffffff;
+    background-color: #272e3b;
+    border: none;
+    position: absolute;
+    right: 5%;
+    bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0 12px;
+  }
+}

@@ -3,7 +3,7 @@ import style from "./Registration.module.scss"
 
 const Registration = () => {
   return (
-    <div className={style.wrapper}>
+    <div className={style.wrapper + " container"}>
       <img src='./img/connectionLogo.png' alt='logo' className={style.img} />
       <form className={style.form}>
         <h2 className={style.title}>Заявка на подключение</h2>

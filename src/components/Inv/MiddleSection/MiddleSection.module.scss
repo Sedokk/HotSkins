@@ -1,22 +1,15 @@
-.wrapper {
-  background-color: #20222a;
+.middleSection {
+  background: #20222a;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  gap: 0 12%;
-  height: 100%;
-  .img {
-    position: relative;
-    top: 25px;
-  }
-  .form {
+  padding: 40px 0 32px;
+  gap: 40px 0;
+  .top {
     display: flex;
-    flex-direction: column;
-    gap: 24px 0;
-    justify-content: center;
-    align-items: start;
+    align-items: center;
+    justify-content: space-between;
     .title {
-      margin-bottom: 8px;
       font-family: "Rubik";
       font-weight: 500;
       font-size: 32px;
@@ -28,7 +21,10 @@
       border-radius: 24px;
       background-color: #20222a;
       padding: 11px 24px;
-
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0 16px;
       .input {
         border: none;
         background-color: #20222a;
@@ -38,7 +34,7 @@
         font-size: 14px;
         line-height: 16px;
         color: #ffffff;
-        width: 450px;
+        width: 340px;
         padding: 0;
         &::placeholder {
           color: rgba(255, 255, 255, 0.5);
@@ -50,22 +46,32 @@
             color: transparent;
           }
         }
-        &:last-child {
-        }
-      }
-      .textArea {
-        resize: none;
       }
     }
-
-    .formBtn {
-      background: #f4c038;
-      border-radius: 50px;
+  }
+  .bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .checkboxesWrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0 30px;
+      .checkSign {
+        font-family: "Rubik";
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        color: #ffffff;
+      }
+    }
+    .hotPrices {
       font-family: "Rubik";
-      font-weight: 500;
+      font-style: normal;
+      font-weight: 400;
       font-size: 16px;
       line-height: 20px;
-      padding: 14px 24px;
       color: #20222a;
     }
   }

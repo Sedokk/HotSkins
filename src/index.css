@@ -85,3 +85,8 @@ button {
   cursor: pointer;
   border: none;
 }
+
+.container {
+  padding-left: 5%;
+  padding-right: 5%;
+}

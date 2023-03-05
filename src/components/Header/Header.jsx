@@ -4,7 +4,7 @@ import style from "./Header.module.scss"
 
 const Header = () => {
   return (
-    <header className={style.header}>
+    <header className={style.header + " container"}>
       <Link to='/'>
         <div className={style.logoWrapper}>
           <img src='./img/logo/logo.svg' alt='logo' />
