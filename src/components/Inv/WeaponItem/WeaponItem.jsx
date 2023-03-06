@@ -1,12 +1,17 @@
 import React from "react"
+import { getCSGOColor } from "../../../modules"
 import style from "./WeaponItem.module.scss"
 
-const WeaponItem = () => {
+const WeaponItem = ({ data }) => {
+  const { price, img, rarity, hot } = data
   return (
     <div className={style.item}>
-      <img src='./img/CSGO/1.png' alt='Weapon' className={style.img} />
-      <span className={style.price}>25 456 Р.</span>
-      <div className={style.light}></div>
+      <img src={img} alt='Weapon' className={style.img} />
+      <span className={style.price}>{price} ₽</span>
+      <div
+        className={style.light}
+        style={{ background: getCSGOColor(rarity) }}
+      ></div>
     </div>
   )
 }

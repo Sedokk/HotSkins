@@ -1,7 +1,12 @@
 import React from "react"
+import useItems from "../../../store"
 import style from "./TopSection.module.scss"
 
 const TopSection = () => {
+  const [currentGame, setCurrentGame] = useItems((state) => [
+    state.currentGame,
+    state.setCurrentGame,
+  ])
   return (
     <section className={"container " + style.topSection}>
       <div className={style.info}>
@@ -10,11 +15,21 @@ const TopSection = () => {
       </div>
       <div className={style.btnWrapper}>
         <button
-          className={`${style.gameBtn} ${style.csBtn} ${style.activeBtn}`}
+          className={`${style.gameBtn} ${style.csBtn} ${
+            currentGame === "CSGO" ? style.activeBtn : ""
+          }`}
+          onClick={() => setCurrentGame("CSGO")}
         >
           CS:GO
         </button>
-        <button className={`${style.gameBtn} ${style.dotaBtn}`}>DOTA 2</button>
+        <button
+          className={`${style.gameBtn} ${style.dotaBtn} ${
+            currentGame === "DOTA" ? style.activeBtn : ""
+          }`}
+          onClick={() => setCurrentGame("DOTA")}
+        >
+          DOTA 2
+        </button>
       </div>
       <button className={style.refreshBtn}>
         <img src='./img/icons/refresh-min.svg' alt='refresh' />

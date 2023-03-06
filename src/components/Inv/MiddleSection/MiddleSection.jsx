@@ -1,9 +1,11 @@
 import React from "react"
 import style from "./MiddleSection.module.scss"
 import Checkbox from "../Checkbox/Checkbox"
+import useItems from "../../../store"
 
 const MiddleSection = () => {
-  const csItems = [
+  const currentGame = useItems((state) => state.currentGame)
+  const csgoItems = [
     {
       rarity: "extraordinary",
       color: "#FFCE50",
@@ -30,7 +32,37 @@ const MiddleSection = () => {
     },
     {
       rarity: "consumer",
-      color: "#FFFFFF",
+      color: "#B4C2D7",
+    },
+  ]
+  const dotaItems = [
+    {
+      rarity: "arcana",
+      color: "#4ADD32",
+    },
+    {
+      rarity: "immortal",
+      color: "#FFCE50",
+    },
+    {
+      rarity: "legendary",
+      color: "#CF309C",
+    },
+    {
+      rarity: "mythical",
+      color: "#8533ED",
+    },
+    {
+      rarity: "rare",
+      color: "#275CE4",
+    },
+    {
+      rarity: "uncommon",
+      color: "#6AB2F4",
+    },
+    {
+      rarity: "common",
+      color: "#B4C2D7",
     },
   ]
   return (
@@ -49,9 +81,13 @@ const MiddleSection = () => {
       <div className={style.bottom}>
         <div className={style.checkboxesWrapper}>
           <span className={style.checkSign}>Редкость</span>
-          {csItems.map((item) => (
-            <Checkbox params={item} key={item.rarity} />
-          ))}
+          {currentGame === "CSGO"
+            ? csgoItems.map((item) => (
+                <Checkbox params={item} key={item.rarity} />
+              ))
+            : dotaItems.map((item) => (
+                <Checkbox params={item} key={item.rarity} />
+              ))}
         </div>
         <span className={style.hotPrices}>Только горячие цены</span>
       </div>
