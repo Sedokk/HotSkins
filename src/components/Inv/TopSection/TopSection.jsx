@@ -1,5 +1,5 @@
 import React from "react"
-import useItems from "../../../store"
+import { useItems } from "../../../store"
 import style from "./TopSection.module.scss"
 
 const TopSection = () => {

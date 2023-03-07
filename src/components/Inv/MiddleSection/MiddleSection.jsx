@@ -1,7 +1,7 @@
 import React from "react"
 import style from "./MiddleSection.module.scss"
 import Checkbox from "../Checkbox/Checkbox"
-import useItems from "../../../store"
+import { useItems } from "../../../store"
 
 const MiddleSection = () => {
   const currentGame = useItems((state) => state.currentGame)
@@ -83,10 +83,10 @@ const MiddleSection = () => {
           <span className={style.checkSign}>Редкость</span>
           {currentGame === "CSGO"
             ? csgoItems.map((item) => (
-                <Checkbox params={item} key={item.rarity} />
+                <Checkbox game='CSGO' params={item} key={item.rarity} />
               ))
             : dotaItems.map((item) => (
-                <Checkbox params={item} key={item.rarity} />
+                <Checkbox game='DOTA' params={item} key={item.rarity} />
               ))}
         </div>
         <span className={style.hotPrices}>Только горячие цены</span>

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react"
-import useItems from "../../../store"
+import { arrayFilter } from "../../../modules"
+import { useFilters, useItems } from "../../../store"
 import WeaponItem from "../WeaponItem/WeaponItem"
 import style from "./BottomSection.module.scss"
 
@@ -13,6 +14,10 @@ const BottomSection = () => {
       state.currentGame,
     ]
   )
+  const { csgoFilters, dotaFilters } = useFilters((state) => ({
+    csgoFilters: state.csgoFilters,
+    dotaFilters: state.dotaFilters,
+  }))
   useEffect(() => {
     getCSGOData("http://localhost:3001/CSGO")
     getDOTAData("http://localhost:3001/DOTA")
@@ -25,8 +30,14 @@ const BottomSection = () => {
       </div>
       <div className={style.weaponWrapper}>
         {currentGame === "CSGO"
-          ? csData && csData.map((e) => <WeaponItem key={e.id} data={e} />)
-          : dotaData && dotaData.map((e) => <WeaponItem key={e.id} data={e} />)}
+          ? csData &&
+            csData
+              .filter((e) => arrayFilter(e, csgoFilters))
+              .map((e) => <WeaponItem key={e.id} data={e} />)
+          : dotaData &&
+            dotaData
+              .filter((e) => arrayFilter(e, dotaFilters))
+              .map((e) => <WeaponItem key={e.id} data={e} />)}
       </div>
     </section>
   )

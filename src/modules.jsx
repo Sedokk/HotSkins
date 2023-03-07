@@ -1,18 +1,18 @@
 const getCSGOColor = (rarity) => {
   switch (rarity) {
-    case 6:
+    case "extraordinary":
       return "#FFCE50"
-    case 5:
+    case "covert":
       return "#ED422B"
-    case 4:
+    case "classified":
       return "#CF309C"
-    case 3:
+    case "restricted":
       return "#8533ED"
-    case 2:
+    case "mil-spec":
       return "#275CE4"
-    case 1:
+    case "industrial":
       return "#6AB2F4"
-    case 0:
+    case "consumer":
       return "#B4C2D7"
     default:
       return "white"
@@ -21,23 +21,28 @@ const getCSGOColor = (rarity) => {
 
 const getDOTAColor = (rarity) => {
   switch (rarity) {
-    case 6:
+    case "arcana":
       return "#4ADD32"
-    case 5:
+    case "immortal":
       return "#FFCE50"
-    case 4:
+    case "legendary":
       return "#CF309C"
-    case 3:
+    case "mythical":
       return "#8533ED"
-    case 2:
+    case "rare":
       return "#275CE4"
-    case 1:
+    case "uncommon":
       return "#6AB2F4"
-    case 0:
+    case "common":
       return "#B4C2D7"
     default:
       return "white"
   }
 }
 
-export { getCSGOColor, getDOTAColor }
+const arrayFilter = (item, filters) => {
+  if (filters.rarity.length > 0) return filters.rarity.includes(item.rarity)
+  return true
+}
+
+export { getCSGOColor, getDOTAColor, arrayFilter }
