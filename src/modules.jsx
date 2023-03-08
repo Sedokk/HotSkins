@@ -40,9 +40,11 @@ const getDOTAColor = (rarity) => {
   }
 }
 
-const arrayFilter = (item, filters) => {
-  if (filters.rarity.length > 0) return filters.rarity.includes(item.rarity)
-  return true
+const arrayFilter = (item, filters, text) => {
+  return (
+    (filters.length === 0 || filters.includes(item?.rarity)) &&
+    item?.title.toLowerCase().includes(text)
+  )
 }
 
 export { getCSGOColor, getDOTAColor, arrayFilter }

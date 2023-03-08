@@ -1,18 +1,21 @@
-import React, { useEffect, useRef, useState } from "react"
-import { useFilters } from "../../../store"
+import React, { useEffect, useState } from "react"
+import { useFilters, useItems } from "../../../../../store"
 import style from "./Checkbox.module.scss"
 
 const Checkbox = ({ params, game }) => {
   const { rarity, color } = params
   const [checked, setChecked] = useState(false)
-  const { filterHandler, csgoFilters, dotaFilters } = useFilters((state) => ({
-    filterHandler: state.filterHandler,
-    csgoFilters: state.csgoFilters,
-    dotaFilters: state.dotaFilters,
-  }))
+  const { csgoFilterHandler, csgoFilters, dotaFilters, dotaFilterHandler } =
+    useFilters((state) => ({
+      csgoFilterHandler: state.csgoFilterHandler,
+      dotaFilterHandler: state.dotaFilterHandler,
+      csgoFilters: state.csgoFilters,
+      dotaFilters: state.dotaFilters,
+    }))
+  const currentGame = useItems((state) => state.currentGame)
 
   const isInFilters = () =>
-    csgoFilters.rarity.includes(rarity) || dotaFilters.rarity.includes(rarity)
+    csgoFilters.includes(rarity) || dotaFilters.includes(rarity)
 
   useEffect(() => {
     setChecked(isInFilters())
@@ -25,7 +28,8 @@ const Checkbox = ({ params, game }) => {
         className={style.checkbox}
         onChange={(ev) => {
           setChecked(!checked)
-          filterHandler(ev)
+          if (currentGame === "CSGO") csgoFilterHandler(ev)
+          else dotaFilterHandler(ev)
         }}
         checked={checked}
         data-game={game}

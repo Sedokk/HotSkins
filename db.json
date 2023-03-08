@@ -5,70 +5,80 @@
       "price": 24999,
       "img": "./img/CSGO/1.png",
       "rarity": "extraordinary",
-      "hot": false
+      "hot": false,
+      "title": "Blood Web"
     },
     {
       "id": "2",
       "price": 21449,
       "img": "./img/CSGO/2.png",
       "rarity": "extraordinary",
-      "hot": false
+      "hot": false,
+      "title": "Leopard"
     },
     {
       "id": "3",
       "price": 36549,
       "img": "./img/CSGO/3.png",
       "rarity": "extraordinary",
-      "hot": false
+      "hot": false,
+      "title": "Dark Waves"
     },
     {
       "id": "4",
       "price": 8764,
       "img": "./img/CSGO/4.png",
       "rarity": "covert",
-      "hot": false
+      "hot": false,
+      "title": "Beast"
     },
     {
       "id": "5",
       "price": 3667,
       "img": "./img/CSGO/5.png",
       "rarity": "covert",
-      "hot": false
+      "hot": false,
+      "title": "Moon Light"
     },
     {
       "id": "6",
       "price": 5669,
       "img": "./img/CSGO/6.png",
       "rarity": "covert",
-      "hot": false
+      "hot": false,
+      "title": "Blood Web"
     },
     {
       "id": "7",
       "price": 1399,
       "img": "./img/CSGO/7.png",
-      "rarity": "classified",
-      "hot": false
+      "rarity": "covert",
+      "hot": false,
+      "title": "Chineese New Year"
     },
     {
       "id": "8",
       "price": 832,
       "img": "./img/CSGO/8.png",
       "rarity": "classified",
-      "hot": false
+      "hot": false,
+      "title": "Colors"
     },
     {
       "id": "9",
       "price": 316,
       "img": "./img/CSGO/9.png",
       "rarity": "restricted",
-      "hot": false
+      "hot": false,
+      "title": "Urban Art"
     },
     {
       "id": "10",
       "price": 245,
       "img": "./img/CSGO/10.png",
       "rarity": "restricted",
-      "hot": false
+      "hot": false,
+      "title": "Pink Elegance"
     }
   ],
   "DOTA": [
@@ -77,56 +87,64 @@
       "price": 24999,
       "img": "./img/DOTA/1.png",
       "rarity": "arcana",
-      "hot": false
+      "hot": false,
+      "title": "Big Stick"
     },
     {
       "id": "2",
       "price": 21449,
       "img": "./img/DOTA/2.png",
       "rarity": "arcana",
-      "hot": false
+      "hot": false,
+      "title": "Predator's jaw"
     },
     {
       "id": "3",
       "price": 16549,
       "img": "./img/DOTA/3.png",
       "rarity": "immortal",
-      "hot": false
+      "hot": false,
+      "title": "Sand Clocks"
     },
     {
       "id": "4",
       "price": 8764,
       "img": "./img/DOTA/4.png",
       "rarity": "immortal",
-      "hot": false
+      "hot": false,
+      "title": "Frozen Crown"
     },
     {
       "id": "5",
       "price": 3667,
       "img": "./img/DOTA/5.png",
       "rarity": "immortal",
-      "hot": false
+      "hot": false,
+      "title": "Water Disk"
     },
     {
       "id": "6",
       "price": 5669,
       "img": "./img/DOTA/6.png",
       "rarity": "legendary",
-      "hot": false
+      "hot": false,
+      "title": "Someone's fang"
     },
     {
       "id": "7",
       "price": 1399,
       "img": "./img/DOTA/7.png",
       "rarity": "legendary",
-      "hot": false
+      "hot": false,
+      "title": "Icy Shoulder Pads"
     },
     {
       "id": "8",
       "price": 832,
       "img": "./img/DOTA/8.png",
       "rarity": "mythical",
-      "hot": false
+      "hot": false,
+      "title": "Violet Small Stick"
     }
   ]
 }

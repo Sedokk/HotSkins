@@ -1,6 +1,6 @@
 import React from "react"
-import { getCSGOColor, getDOTAColor } from "../../../modules"
-import { useItems } from "../../../store"
+import { getCSGOColor, getDOTAColor } from "../../../../modules"
+import { useItems } from "../../../../store"
 import style from "./WeaponItem.module.scss"
 
 const WeaponItem = ({ data }) => {
