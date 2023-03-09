@@ -1,24 +1,22 @@
 import { create } from "zustand"
 import { devtools, persist } from "zustand/middleware"
 
-const useItems = create(
-  devtools((set, get) => ({
-    csData: [],
-    dotaData: [],
-    currentGame: "CSGO",
-    getCSGOData: async (URL) => {
-      const data = await fetch(URL).then((resp) => resp.json())
-      set({ csData: await data })
-    },
-    getDOTAData: async (URL) => {
-      const data = await fetch(URL).then((resp) => resp.json())
-      set({ dotaData: await data })
-    },
-    setCurrentGame: (game) => {
-      set({ currentGame: game })
-    },
-  }))
-)
+const useItems = create((set, get) => ({
+  csData: [],
+  dotaData: [],
+  currentGame: "CSGO",
+  getCSGOData: async (URL) => {
+    const data = await fetch(URL).then((resp) => resp.json())
+    set({ csData: await data })
+  },
+  getDOTAData: async (URL) => {
+    const data = await fetch(URL).then((resp) => resp.json())
+    set({ dotaData: await data })
+  },
+  setCurrentGame: (game) => {
+    set({ currentGame: game })
+  },
+}))
 
 const useFilters = create(
   persist(
@@ -64,4 +62,23 @@ const useFilters = create(
   )
 )
 
-export { useItems, useFilters }
+const useCart = create(
+  devtools((set, get) => ({
+    cartIsOpened: true,
+    cart: [],
+    addToCart: (item) => {
+      set({ cart: [...get().cart, item] })
+    },
+    removeFromCart: (item) => {
+      set({ cart: [...get().cart.filter((e) => e.id !== item.id)] })
+    },
+    clearCart: () => {
+      set({ cart: [] })
+    },
+    setCartIsOpened: (bool) => {
+      set({ cartIsOpened: bool })
+    },
+  }))
+)
+
+export { useItems, useFilters, useCart }

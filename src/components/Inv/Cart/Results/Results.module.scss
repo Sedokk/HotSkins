@@ -1,0 +1,80 @@
+.results {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px 25px;
+  width: 390px;
+  background: #272e3b;
+  border-radius: 10px;
+  gap: 40px 0;
+  position: relative;
+  .sumBlock {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .sumTitle {
+      font-family: "Rubik";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 20px;
+      color: #ffffff;
+    }
+    .sum {
+      font-family: "Rubik";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 20px;
+      color: #ffffff;
+    }
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 60px;
+      height: 3px;
+      background: #20222a;
+      width: 100%;
+    }
+  }
+  .details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 15px 0;
+    .gameDetails {
+      font-family: "Rubik";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 20px;
+      color: #f4c038;
+    }
+    .itemsDetails {
+      font-family: "Rubik";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 15px;
+      line-height: 20px;
+      color: #ffffff;
+      margin-top: -10px;
+    }
+  }
+  .exchangeBtn {
+    background: #f4c038;
+    border-radius: 50px;
+    padding: 20px 60px;
+    color: #000000;
+    font-family: "Rubik";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 20px;
+    border: none;
+    width: fit-content;
+    margin: 0 auto;
+  }
+}

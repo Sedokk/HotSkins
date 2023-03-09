@@ -1,0 +1,27 @@
+.cart {
+  background: #20222a;
+  flex-grow: 1;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  color: white;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 0 30px;
+  .itemsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 40px 0;
+    flex-grow: 1;
+    .cartTitle {
+      font-family: "Rubik";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 38px;
+      line-height: 20px;
+      color: #ffffff;
+    }
+  }
+}

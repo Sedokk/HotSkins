@@ -17,9 +17,6 @@ const Checkbox = ({ params, game }) => {
   const isInFilters = () =>
     csgoFilters.includes(rarity) || dotaFilters.includes(rarity)
 
-  useEffect(() => {
-    setChecked(isInFilters())
-  }, [])
   return (
     <label className={style.chekboxLabel}>
       <input
@@ -38,7 +35,7 @@ const Checkbox = ({ params, game }) => {
         className={style.fakeCheckbox}
         style={{
           border: "1px solid " + color,
-          backgroundColor: checked ? color : "transparent",
+          backgroundColor: isInFilters() ? color : "transparent",
         }}
       ></div>
     </label>
