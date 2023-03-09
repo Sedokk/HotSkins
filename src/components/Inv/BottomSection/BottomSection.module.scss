@@ -25,10 +25,10 @@
     }
   }
   .weaponWrapper {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
     gap: 24px 18px;
     padding: 40px 0;
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   }
 }
