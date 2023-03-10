@@ -156,7 +156,7 @@
   ],
   "DOTA": [
     {
-      "id": "1",
+      "id": "99",
       "price": 24999,
       "img": "./img/DOTA/1.png",
       "rarity": "arcana",
@@ -165,7 +165,7 @@
       "game": "DOTA"
     },
     {
-      "id": "2",
+      "id": "98",
       "price": 21449,
       "img": "./img/DOTA/2.png",
       "rarity": "arcana",
@@ -174,7 +174,7 @@
       "game": "DOTA"
     },
     {
-      "id": "3",
+      "id": "97",
       "price": 16549,
       "img": "./img/DOTA/3.png",
       "rarity": "immortal",
@@ -183,7 +183,7 @@
       "game": "DOTA"
     },
     {
-      "id": "4",
+      "id": "96",
       "price": 8764,
       "img": "./img/DOTA/4.png",
       "rarity": "immortal",
@@ -192,7 +192,7 @@
       "game": "DOTA"
     },
     {
-      "id": "5",
+      "id": "95",
       "price": 3667,
       "img": "./img/DOTA/5.png",
       "rarity": "immortal",
@@ -201,7 +201,7 @@
       "game": "DOTA"
     },
     {
-      "id": "6",
+      "id": "94",
       "price": 5669,
       "img": "./img/DOTA/6.png",
       "rarity": "legendary",
@@ -210,7 +210,7 @@
       "game": "DOTA"
     },
     {
-      "id": "7",
+      "id": "93",
       "price": 1399,
       "img": "./img/DOTA/7.png",
       "rarity": "legendary",
@@ -219,7 +219,7 @@
       "game": "DOTA"
     },
     {
-      "id": "8",
+      "id": "92",
       "price": 832,
       "img": "./img/DOTA/8.png",
       "rarity": "mythical",

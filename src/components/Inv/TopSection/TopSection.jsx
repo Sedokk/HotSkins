@@ -1,12 +1,16 @@
 import React from "react"
-import { useItems } from "../../../store"
+import { useCart, useItems } from "../../../store"
 import style from "./TopSection.module.scss"
 
 const TopSection = () => {
-  const [currentGame, setCurrentGame] = useItems((state) => [
-    state.currentGame,
-    state.setCurrentGame,
-  ])
+  const { currentGame, setCurrentGame } = useItems((state) => ({
+    currentGame: state.currentGame,
+    setCurrentGame: state.setCurrentGame,
+  }))
+  const { cartIsOpened, setCartIsOpened } = useCart((state) => ({
+    setCartIsOpened: state.setCartIsOpened,
+    cartIsOpened: state.cartIsOpened,
+  }))
   return (
     <section className={"container " + style.topSection}>
       <div className={style.info}>
@@ -31,7 +35,10 @@ const TopSection = () => {
           DOTA 2
         </button>
       </div>
-      <button className={style.refreshBtn}>
+      <button
+        className={style.refreshBtn}
+        onClick={() => setCartIsOpened(!cartIsOpened)}
+      >
         <img src='./img/icons/refresh-min.svg' alt='refresh' />
         Обновить инвентарь
       </button>

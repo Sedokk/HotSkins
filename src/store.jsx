@@ -64,7 +64,7 @@ const useFilters = create(
 
 const useCart = create(
   devtools((set, get) => ({
-    cartIsOpened: true,
+    cartIsOpened: false,
     cart: [],
     addToCart: (item) => {
       set({ cart: [...get().cart, item] })

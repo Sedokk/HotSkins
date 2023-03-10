@@ -1,10 +1,10 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { getCSGOColor, getDOTAColor } from "../../../../modules"
 import { useCart, useItems } from "../../../../store"
 import style from "./WeaponItem.module.scss"
 
 const WeaponItem = ({ data }) => {
-  const { price, img, rarity, hot } = data
+  const { price, img, rarity, hot, id, game } = data
   const currentGame = useItems((state) => state.currentGame)
   const { cart, addToCart, removeFromCart } = useCart((state) => ({
     cart: state.cart,
@@ -12,12 +12,12 @@ const WeaponItem = ({ data }) => {
     removeFromCart: state.removeFromCart,
   }))
   const isInCart = () => {
-    return cart.includes(data)
+    return cart.some((e) => e.id === id && e.game === game)
   }
   return (
     <div
       className={`${style.item} ${isInCart() ? style.active : ""}`}
-      onClick={() => (isInCart(data) ? removeFromCart(data) : addToCart(data))}
+      onClick={() => (isInCart() ? removeFromCart(data) : addToCart(data))}
     >
       <img src={img} alt='Weapon' className={style.img} />
       <span className={style.price}>{price} ₽</span>

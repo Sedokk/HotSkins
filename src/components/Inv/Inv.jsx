@@ -11,8 +11,13 @@ const Inv = () => {
   return (
     <div className={style.wrapper}>
       <TopSection />
-      <MiddleSection />
-      {cartIsOpened ? <Cart /> : <BottomSection />}
+      {cartIsOpened ? (
+        <Cart />
+      ) : (
+        <>
+          <MiddleSection /> <BottomSection />
+        </>
+      )}
     </div>
   )
 }
