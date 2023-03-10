@@ -39,8 +39,7 @@ const TopSection = () => {
         className={style.refreshBtn}
         onClick={() => setCartIsOpened(!cartIsOpened)}
       >
-        <img src='./img/icons/refresh-min.svg' alt='refresh' />
-        Обновить инвентарь
+        {cartIsOpened ? "Мои предметы" : "Добавленное"}
       </button>
     </section>
   )

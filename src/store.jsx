@@ -67,7 +67,7 @@ const useCart = create(
     cartIsOpened: false,
     cart: [],
     addToCart: (item) => {
-      set({ cart: [...get().cart, item] })
+      set({ cart: [...get().cart, { ...item, selected: false }] })
     },
     removeFromCart: (item) => {
       set({ cart: [...get().cart.filter((e) => e.id !== item.id)] })
@@ -77,6 +77,16 @@ const useCart = create(
     },
     setCartIsOpened: (bool) => {
       set({ cartIsOpened: bool })
+    },
+    setSelected: (bool, id) => {
+      set({
+        cart: [
+          ...get().cart.map((e) => {
+            if (e.id === id) return { ...e, selected: bool }
+            else return e
+          }),
+        ],
+      })
     },
   }))
 )

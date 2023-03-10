@@ -47,4 +47,11 @@ const arrayFilter = (item, filters, text) => {
   )
 }
 
-export { getCSGOColor, getDOTAColor, arrayFilter }
+const declination = (num = 0) => {
+  if (num > 9 && num < 20) return `${num} предметов`
+  if (num % 10 === 1) return `${num} предмет`
+  if ([2, 3, 4].includes(num % 10)) return `${num} предмета`
+  else return `${num} предметов`
+}
+
+export { getCSGOColor, getDOTAColor, arrayFilter, declination }
