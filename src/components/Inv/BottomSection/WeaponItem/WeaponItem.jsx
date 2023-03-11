@@ -1,3 +1,4 @@
+import { Player } from "@lottiefiles/react-lottie-player"
 import React from "react"
 import { getCSGOColor, getDOTAColor } from "../../../../modules"
 import { useCart, useItems } from "../../../../store"
@@ -36,12 +37,17 @@ const WeaponItem = ({ data }) => {
         }}
       ></div>
       {hot && (
-        <img
-          src='./img/icons/fire.png'
-          alt='fire'
-          style={{ width: "30px" }}
-          className={style.hot}
-        />
+        <div className={style.hot}>
+          <Player
+            loop
+            autoplay
+            src='https://assets9.lottiefiles.com/packages/lf20_7iux5gpv.json'
+            style={{
+              width: "30px",
+              height: "30px",
+            }}
+          />
+        </div>
       )}
     </div>
   )

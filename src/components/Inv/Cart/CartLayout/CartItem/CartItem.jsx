@@ -2,9 +2,10 @@ import React from "react"
 import style from "./CartItem.module.scss"
 import { getCSGOColor, getDOTAColor } from "../../../../../modules"
 import { useCart } from "../../../../../store"
+import { Player } from "@lottiefiles/react-lottie-player"
 
 const CartItem = ({ data }) => {
-  const { img, price, rarity, game, selected, id } = data
+  const { img, price, rarity, game, selected, id, hot } = data
   const setSelected = useCart((state) => state.setSelected)
   return (
     <div
@@ -12,7 +13,12 @@ const CartItem = ({ data }) => {
       onClick={() => setSelected(!selected, id)}
     >
       <img src={img} alt='Cart item' className={style.img} />
-      <span className={style.price}>{price} ₽</span>
+      <span
+        className={style.price}
+        style={{ color: hot ? "#F47523" : "white" }}
+      >
+        {price} ₽
+      </span>
       <div
         className={style.light}
         style={{
@@ -20,6 +26,20 @@ const CartItem = ({ data }) => {
             game === "CSGO" ? getCSGOColor(rarity) : getDOTAColor(rarity),
         }}
       ></div>
+      {hot && (
+        <div className={style.hot}>
+          <Player
+            loop
+            autoplay
+            src='https://assets9.lottiefiles.com/packages/lf20_7iux5gpv.json'
+            style={{
+              width: "30px",
+              height: "30px",
+              fill: "#F47523",
+            }}
+          />
+        </div>
+      )}
     </div>
   )
 }

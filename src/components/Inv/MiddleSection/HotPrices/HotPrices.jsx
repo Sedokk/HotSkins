@@ -1,6 +1,7 @@
 import React from "react"
 import { useFilters } from "../../../../store"
 import style from "./HotPrices.module.scss"
+import { Player } from "@lottiefiles/react-lottie-player"
 
 const HotPrices = () => {
   const { onlyHotPrices, hotPricesHandler } = useFilters((state) => ({
@@ -20,7 +21,17 @@ const HotPrices = () => {
           onlyHotPrices ? style.checked : ""
         }`}
       ></div>
-      <img src='./img/icons/fire.png' alt='fire pic' className={style.img} />
+      <Player
+        loop
+        autoplay
+        src='https://assets9.lottiefiles.com/packages/lf20_7iux5gpv.json'
+        style={{
+          width: "30px",
+          height: "30px",
+          position: "relative",
+          bottom: "4px",
+        }}
+      />
       <span className={style.title}>Только горячие цены</span>
     </label>
   )
