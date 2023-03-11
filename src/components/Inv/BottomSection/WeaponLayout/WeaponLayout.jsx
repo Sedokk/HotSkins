@@ -4,11 +4,14 @@ import { arrayFilter } from "../../../../modules"
 import WeaponItem from "../WeaponItem/WeaponItem"
 
 const WeaponLayout = () => {
-  const { csgoFilters, dotaFilters, textFilter } = useFilters((state) => ({
-    csgoFilters: state.csgoFilters,
-    dotaFilters: state.dotaFilters,
-    textFilter: state.textFilter,
-  }))
+  const { csgoFilters, dotaFilters, textFilter, onlyHotPrices } = useFilters(
+    (state) => ({
+      csgoFilters: state.csgoFilters,
+      dotaFilters: state.dotaFilters,
+      textFilter: state.textFilter,
+      onlyHotPrices: state.onlyHotPrices,
+    })
+  )
   const { csData, dotaData, currentGame } = useItems((state) => ({
     csData: state.csData,
     dotaData: state.dotaData,
@@ -19,11 +22,15 @@ const WeaponLayout = () => {
       {currentGame === "CSGO"
         ? csData &&
           csData
-            .filter((e) => arrayFilter(e, csgoFilters, textFilter))
+            .filter((e) =>
+              arrayFilter(e, csgoFilters, textFilter, onlyHotPrices)
+            )
             .map((e) => <WeaponItem key={e.id} data={e} />)
         : dotaData &&
           dotaData
-            .filter((e) => arrayFilter(e, dotaFilters, textFilter))
+            .filter((e) =>
+              arrayFilter(e, dotaFilters, textFilter, onlyHotPrices)
+            )
             .map((e) => <WeaponItem key={e.id} data={e} />)}
     </>
   )

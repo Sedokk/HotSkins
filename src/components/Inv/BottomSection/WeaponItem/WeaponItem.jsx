@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import { getCSGOColor, getDOTAColor } from "../../../../modules"
 import { useCart, useItems } from "../../../../store"
 import style from "./WeaponItem.module.scss"
@@ -20,7 +20,12 @@ const WeaponItem = ({ data }) => {
       onClick={() => (isInCart() ? removeFromCart(data) : addToCart(data))}
     >
       <img src={img} alt='Weapon' className={style.img} />
-      <span className={style.price}>{price} ₽</span>
+      <span
+        className={style.price}
+        style={{ color: hot ? "#F47523" : "white" }}
+      >
+        {price} ₽
+      </span>
       <div
         className={style.light}
         style={{
@@ -30,6 +35,14 @@ const WeaponItem = ({ data }) => {
               : getDOTAColor(rarity),
         }}
       ></div>
+      {hot && (
+        <img
+          src='./img/icons/fire.png'
+          alt='fire'
+          style={{ width: "30px" }}
+          className={style.hot}
+        />
+      )}
     </div>
   )
 }

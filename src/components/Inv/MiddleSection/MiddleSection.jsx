@@ -2,6 +2,7 @@ import React from "react"
 import style from "./MiddleSection.module.scss"
 import { useFilters } from "../../../store"
 import CheckboxLayout from "./CheckboxLayout/CheckboxLayout"
+import HotPrices from "./HotPrices/HotPrices"
 
 const MiddleSection = () => {
   const { textFilter, setTextFilter } = useFilters((state) => ({
@@ -28,7 +29,7 @@ const MiddleSection = () => {
           <span className={style.checkSign}>Редкость</span>
           <CheckboxLayout />
         </div>
-        <span className={style.hotPrices}>Только горячие цены</span>
+        <HotPrices />
       </div>
     </section>
   )

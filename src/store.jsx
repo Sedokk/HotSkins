@@ -24,6 +24,7 @@ const useFilters = create(
       dotaFilters: [],
       csgoFilters: [],
       textFilter: "",
+      onlyHotPrices: false,
       setTextFilter: (ev) => {
         set({ textFilter: ev.target.value.toLowerCase() })
       },
@@ -54,6 +55,9 @@ const useFilters = create(
             ],
           })
         }
+      },
+      hotPricesHandler: (ev) => {
+        set({ onlyHotPrices: ev.target.checked })
       },
     }),
     {

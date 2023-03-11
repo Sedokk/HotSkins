@@ -14,7 +14,7 @@
       "price": 21449,
       "img": "./img/CSGO/2.png",
       "rarity": "extraordinary",
-      "hot": false,
+      "hot": true,
       "title": "Leopard",
       "game": "CSGO"
     },
@@ -32,7 +32,7 @@
       "price": 8764,
       "img": "./img/CSGO/4.png",
       "rarity": "covert",
-      "hot": false,
+      "hot": true,
       "title": "Beast",
       "game": "CSGO"
     },
@@ -104,7 +104,7 @@
       "price": 8764,
       "img": "./img/CSGO/4.png",
       "rarity": "covert",
-      "hot": false,
+      "hot": true,
       "title": "Beast",
       "game": "CSGO"
     },
@@ -149,7 +149,7 @@
       "price": 36549,
       "img": "./img/CSGO/3.png",
       "rarity": "extraordinary",
-      "hot": false,
+      "hot": true,
       "title": "Dark Waves",
       "game": "CSGO"
     }
@@ -187,7 +187,7 @@
       "price": 8764,
       "img": "./img/DOTA/4.png",
       "rarity": "immortal",
-      "hot": false,
+      "hot": true,
       "title": "Frozen Crown",
       "game": "DOTA"
     },
@@ -205,7 +205,7 @@
       "price": 5669,
       "img": "./img/DOTA/6.png",
       "rarity": "legendary",
-      "hot": false,
+      "hot": true,
       "title": "Someone's fang",
       "game": "DOTA"
     },
@@ -214,7 +214,7 @@
       "price": 1399,
       "img": "./img/DOTA/7.png",
       "rarity": "legendary",
-      "hot": false,
+      "hot": true,
       "title": "Icy Shoulder Pads",
       "game": "DOTA"
     },
