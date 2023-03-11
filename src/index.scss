@@ -90,3 +90,20 @@ button {
   padding-left: 5%;
   padding-right: 5%;
 }
+html {
+  overflow-x: hidden;
+  margin-right: calc(-1 * (100vw - 100%));
+}
+
+body {
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: #20222a;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgb(176, 176, 176);
+    border-radius: 3px;
+  }
+}

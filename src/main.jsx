@@ -5,7 +5,7 @@ import App from "./components/App/App"
 import Inv from "./components/Inv/Inv"
 import Registration from "./components/Registration/Registration"
 import Start from "./components/Start/Start"
-import "./index.css"
+import "./index.scss"
 
 const router = createBrowserRouter([
   {
