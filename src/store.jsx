@@ -95,4 +95,8 @@ const useCart = create(
   }))
 )
 
-export { useItems, useFilters, useCart }
+const useAuth = create((set, get) => ({
+  user: true,
+}))
+
+export { useItems, useFilters, useCart, useAuth }

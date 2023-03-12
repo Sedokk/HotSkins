@@ -6,6 +6,7 @@ import Inv from "./components/Inv/Inv"
 import Registration from "./components/Registration/Registration"
 import Start from "./components/Start/Start"
 import "./index.scss"
+import Protected from "./Protected"
 
 const router = createBrowserRouter([
   {
@@ -22,7 +23,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/inv",
-        element: <Inv />,
+        element: (
+          <Protected>
+            <Inv />
+          </Protected>
+        ),
       },
     ],
   },
