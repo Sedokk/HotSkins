@@ -1,5 +1,6 @@
 import React, { useEffect } from "react"
-import { useFilters, useItems } from "../../../store"
+import { useCart, useFilters, useItems } from "../../../store"
+import AddAllBtn from "./addAllBtn/addAllBtn"
 import style from "./BottomSection.module.scss"
 import WeaponLayout from "./WeaponLayout/WeaponLayout"
 
@@ -17,7 +18,7 @@ const BottomSection = () => {
   return (
     <section className={style.bottomSection + " container"}>
       <div className={style.filterWrapper}>
-        <button className={style.chooseAll}>Выбрать все</button>
+        <AddAllBtn />
         <span className={style.filter}>По цене</span>
       </div>
       <div className={style.weaponWrapper}>

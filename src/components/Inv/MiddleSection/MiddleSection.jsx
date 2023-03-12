@@ -5,10 +5,13 @@ import CheckboxLayout from "./CheckboxLayout/CheckboxLayout"
 import HotPrices from "./HotPrices/HotPrices"
 
 const MiddleSection = () => {
-  const { textFilter, setTextFilter } = useFilters((state) => ({
-    textFilter: state.textFilter,
-    setTextFilter: state.setTextFilter,
-  }))
+  const { textFilter, setTextFilter, deleteTextFilter } = useFilters(
+    (state) => ({
+      textFilter: state.textFilter,
+      setTextFilter: state.setTextFilter,
+      deleteTextFilter: state.deleteTextFilter,
+    })
+  )
   return (
     <section className={style.middleSection + " container"}>
       <div className={style.top}>
@@ -22,6 +25,22 @@ const MiddleSection = () => {
             value={textFilter}
             onChange={setTextFilter}
           />
+          {textFilter ? (
+            <img
+              src='./img/icons/X.svg'
+              alt='delete'
+              style={{ cursor: "pointer" }}
+              onClick={deleteTextFilter}
+            />
+          ) : (
+            <div
+              style={{
+                width: "12px",
+                height: "12px",
+                background: "transparent",
+              }}
+            />
+          )}
         </label>
       </div>
       <div className={style.bottom}>

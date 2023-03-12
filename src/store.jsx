@@ -26,7 +26,10 @@ const useFilters = create(
       textFilter: "",
       onlyHotPrices: false,
       setTextFilter: (ev) => {
-        set({ textFilter: ev.target.value.toLowerCase() })
+        set({ textFilter: ev.target.value })
+      },
+      deleteTextFilter: () => {
+        set({ textFilter: "" })
       },
       csgoFilterHandler: (ev) => {
         const target = ev.target
@@ -71,6 +74,7 @@ const useCart = create(
     cartIsOpened: false,
     cart: [],
     addToCart: (item) => {
+      if (get().cart.some((e) => e.id === item.id)) return
       set({ cart: [...get().cart, { ...item, selected: false }] })
     },
     removeFromCart: (item) => {
@@ -91,6 +95,14 @@ const useCart = create(
           }),
         ],
       })
+    },
+    addAll: (data) => {
+      const { cart, removeFromCart, addToCart } = get()
+      if (data.every((e) => cart.some((el) => el.id === e.id))) {
+        data.forEach((e) => removeFromCart(e))
+      } else {
+        data.forEach((e) => addToCart(e))
+      }
     },
   }))
 )

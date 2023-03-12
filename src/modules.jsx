@@ -43,7 +43,7 @@ const getDOTAColor = (rarity) => {
 const arrayFilter = (item, filters, text, hot) => {
   return (
     (filters.length === 0 || filters.includes(item?.rarity)) &&
-    item?.title.toLowerCase().includes(text) &&
+    item?.title.toLowerCase().includes(text.toLowerCase()) &&
     (hot ? item?.hot : true)
   )
 }
