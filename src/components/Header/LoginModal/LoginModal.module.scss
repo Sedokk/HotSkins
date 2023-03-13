@@ -1,0 +1,93 @@
+.outlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba($color: #000000, $alpha: 0.8);
+  z-index: 10;
+  .modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 600px;
+    background: #20222a;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px 0;
+    .close {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      aspect-ratio: 1;
+      width: 40px;
+      border-radius: 50%;
+      background: transparent url("./img/icons/X.svg") no-repeat center;
+      border: 1px solid #3d4554;
+    }
+    .images {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px 0;
+    }
+    .form {
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 30px 0;
+      align-items: center;
+      .label {
+        border: 1px solid #3d4554;
+        border-radius: 24px;
+        background-color: #20222a;
+        padding: 15px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .input {
+          border: none;
+          background-color: #20222a;
+          font-family: "Rubik";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 16px;
+          color: #ffffff;
+          width: 450px;
+          padding: 0;
+          height: 18px;
+          &::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+            transition: color 0.2s ease;
+          }
+          &:focus {
+            outline: none;
+            &::placeholder {
+              color: transparent;
+            }
+          }
+        }
+      }
+      .formBtn {
+        background: #f4c038;
+        border-radius: 48px;
+        font-family: "Rubik";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 20px;
+        color: #20222a;
+        padding: 15px 0;
+        width: 100%;
+      }
+    }
+  }
+}

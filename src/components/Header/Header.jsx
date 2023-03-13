@@ -1,8 +1,10 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import style from "./Header.module.scss"
+import LoginModal from "./LoginModal/LoginModal"
 
 const Header = () => {
+  const [modalOpen, setModalOpen] = useState(false)
   return (
     <header className={style.header + " container"}>
       <Link to='/'>
@@ -17,7 +19,10 @@ const Header = () => {
           <li className={style.navItem}>Контакты</li>
         </ul>
       </nav>
-      <button className={style.loginBtn}>Войти</button>
+      <button className={style.loginBtn} onClick={() => setModalOpen(true)}>
+        Войти
+      </button>
+      {modalOpen && <LoginModal setModalOpen={setModalOpen} />}
     </header>
   )
 }
