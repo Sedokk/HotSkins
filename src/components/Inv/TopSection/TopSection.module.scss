@@ -73,15 +73,18 @@
   }
   .refreshBtn {
     font-family: "Rubik";
+    font-style: normal;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 20px;
     color: #ffffff;
-    background-color: #272e3b;
-    border: none;
+    background: #20222a;
+    border: 1px solid #313844;
+    border-radius: 20px;
     position: absolute;
     right: 5%;
     bottom: 30px;
+    padding: 15px 25px;
     display: flex;
     align-items: center;
     justify-content: center;
