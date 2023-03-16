@@ -3,7 +3,7 @@ import { devtools, persist } from "zustand/middleware"
 
 const useItems = create(
   devtools((set, get) => ({
-    data: [],
+    data: "",
     currentGame: "CSGO",
     getData: async (URL, game) => {
       const res = await fetch(URL).then((json) => json.json())

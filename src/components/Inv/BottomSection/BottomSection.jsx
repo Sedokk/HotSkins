@@ -1,5 +1,4 @@
-import React, { memo, useEffect } from "react"
-import { useItems } from "../../../store"
+import React from "react"
 import AddAllBtn from "./addAllBtn/addAllBtn"
 import style from "./BottomSection.module.scss"
 import WeaponLayout from "./WeaponLayout/WeaponLayout"
@@ -11,9 +10,7 @@ const BottomSection = () => {
         <AddAllBtn />
         <span className={style.filter}>По цене</span>
       </div>
-      <div className={style.weaponWrapper}>
-        <WeaponLayout />
-      </div>
+      <WeaponLayout />
     </section>
   )
 }
