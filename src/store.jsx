@@ -1,22 +1,27 @@
 import { create } from "zustand"
 import { devtools, persist } from "zustand/middleware"
 
-const useItems = create((set, get) => ({
-  csData: [],
-  dotaData: [],
-  currentGame: "CSGO",
-  getCSGOData: async (URL) => {
-    const data = await fetch(URL).then((resp) => resp.json())
-    set({ csData: await data })
-  },
-  getDOTAData: async (URL) => {
-    const data = await fetch(URL).then((resp) => resp.json())
-    set({ dotaData: await data })
-  },
-  setCurrentGame: (game) => {
-    set({ currentGame: game })
-  },
-}))
+const useItems = create(
+  devtools((set, get) => ({
+    data: [],
+    currentGame: "CSGO",
+    getData: async (URL, game) => {
+      const res = await fetch(URL).then((json) => json.json())
+      set({
+        data: [
+          ...get().data,
+          ...res.map((e) => {
+            e.game = game
+            return e
+          }),
+        ],
+      })
+    },
+    setCurrentGame: (game) => {
+      set({ currentGame: game })
+    },
+  }))
+)
 
 const useFilters = create(
   persist(
@@ -96,8 +101,9 @@ const useCart = create(
         ],
       })
     },
-    addAll: (data) => {
+    addAll: (allData, game) => {
       const { cart, removeFromCart, addToCart } = get()
+      const data = allData.filter((e) => e.game === game)
       if (data.every((e) => cart.some((el) => el.id === e.id))) {
         data.forEach((e) => removeFromCart(e))
       } else {

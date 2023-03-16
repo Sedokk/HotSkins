@@ -1,37 +1,30 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { useFilters, useItems } from "../../../../store"
-import { arrayFilter } from "../../../../modules"
 import WeaponItem from "../WeaponItem/WeaponItem"
+import { arrayFilter } from "../../../../modules"
 
 const WeaponLayout = () => {
-  const { csgoFilters, dotaFilters, textFilter, onlyHotPrices } = useFilters(
+  const { textFilter, onlyHotPrices, dotaFilters, csgoFilters } = useFilters(
     (state) => ({
-      csgoFilters: state.csgoFilters,
-      dotaFilters: state.dotaFilters,
       textFilter: state.textFilter,
       onlyHotPrices: state.onlyHotPrices,
+      dotaFilters: state.dotaFilters,
+      csgoFilters: state.csgoFilters,
     })
   )
-  const { csData, dotaData, currentGame } = useItems((state) => ({
-    csData: state.csData,
-    dotaData: state.dotaData,
+  const { data, currentGame } = useItems((state) => ({
+    data: state.data,
     currentGame: state.currentGame,
   }))
+  const filters = currentGame === "CSGO" ? csgoFilters : dotaFilters
   return (
     <>
-      {currentGame === "CSGO"
-        ? csData &&
-          csData
-            .filter((e) =>
-              arrayFilter(e, csgoFilters, textFilter, onlyHotPrices)
-            )
-            .map((e) => <WeaponItem key={e.id} data={e} />)
-        : dotaData &&
-          dotaData
-            .filter((e) =>
-              arrayFilter(e, dotaFilters, textFilter, onlyHotPrices)
-            )
-            .map((e) => <WeaponItem key={e.id} data={e} />)}
+      {data &&
+        data
+          .filter((e) =>
+            arrayFilter(e, filters, textFilter, onlyHotPrices, currentGame)
+          )
+          .map((e) => <WeaponItem key={e.id} data={e} />)}
     </>
   )
 }

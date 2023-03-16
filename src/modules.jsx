@@ -40,8 +40,9 @@ const getDOTAColor = (rarity) => {
   }
 }
 
-const arrayFilter = (item, filters, text, hot) => {
+const arrayFilter = (item, filters, text, hot, game) => {
   return (
+    item.game === game &&
     (filters.length === 0 || filters.includes(item?.rarity)) &&
     item?.title.toLowerCase().includes(text.toLowerCase()) &&
     (hot ? item?.hot : true)

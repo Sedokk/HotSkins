@@ -2,15 +2,14 @@ import React from "react"
 import { useItems, useCart } from "../../../../store"
 
 const AddAllBtn = () => {
-  const { dotaData, csData, currentGame } = useItems((state) => ({
+  const { currentGame, data } = useItems((state) => ({
     currentGame: state.currentGame,
-    csData: state.csData,
-    dotaData: state.dotaData,
+    data: state.data,
   }))
   const addAll = useCart((state) => state.addAll)
   return (
     <button
-      onClick={() => addAll(currentGame === "CSGO" ? csData : dotaData)}
+      onClick={() => addAll(data, currentGame)}
       style={{
         fontFamily: "Rubik",
         fontWeight: "500",
