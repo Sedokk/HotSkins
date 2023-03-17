@@ -78,6 +78,10 @@ const useCart = create(
   devtools((set, get) => ({
     cartIsOpened: false,
     cart: [],
+    deleteModalIsOpen: false,
+    setDeleteModalIsOpen: (bool) => {
+      set({ deleteModalIsOpen: bool })
+    },
     addToCart: (item) => {
       if (get().cart.some((e) => e.id === item.id)) return
       set({ cart: [...get().cart, { ...item, selected: false }] })

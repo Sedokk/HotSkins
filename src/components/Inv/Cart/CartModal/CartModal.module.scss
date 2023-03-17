@@ -1,0 +1,54 @@
+.outlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba($color: #000000, $alpha: 0.8);
+  z-index: 10;
+  .modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 200px;
+    background: #20222a;
+    border-radius: 20px;
+    padding: 35px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .title {
+      font-family: "Rubik";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 16px;
+      color: #ffffff;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .btnWrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+
+      .modalBtn {
+        background-color: #f4c038;
+        border-radius: 50px;
+        font-family: "Rubik";
+        font-weight: 500;
+        font-size: 16px;
+        color: #20222a;
+        padding: 6px 20px;
+        margin: 0;
+        &.cancelBtn {
+          background-color: #272e3b;
+          color: #ffffff;
+        }
+      }
+    }
+  }
+}

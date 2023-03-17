@@ -14,13 +14,24 @@
     justify-content: start;
     align-items: start;
     flex-grow: 1;
-    .cartTitle {
-      font-family: "Rubik";
-      font-style: normal;
-      font-weight: 500;
-      font-size: 38px;
-      line-height: 20px;
-      color: #ffffff;
+    .itemsContainerTop {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .cartTitle {
+        font-family: "Rubik";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 38px;
+        line-height: 20px;
+        color: #ffffff;
+      }
+      .deleteBtn {
+        width: 35px;
+        height: 35px;
+        background: transparent url("./img/icons/delete.svg") no-repeat center;
+      }
     }
     .itemsWrapper {
       gap: 20px 20px;
