@@ -29,5 +29,22 @@
       width: 100%;
       grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
     }
+    .notFound {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0 50px;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 0;
+      & > p {
+        font-family: "Rubik";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 20px;
+        color: #ffffff;
+      }
+    }
   }
 }
