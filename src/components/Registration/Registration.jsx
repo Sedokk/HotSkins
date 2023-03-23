@@ -1,5 +1,5 @@
 import React from "react"
-import PasswordInput from "./PasswordInput/PasswordInput"
+import InputUI from "../../UIkit/InputUI/InputUI"
 import style from "./Registration.module.scss"
 
 const Registration = () => {
@@ -8,14 +8,10 @@ const Registration = () => {
       <img src='./img/connectionLogo.png' alt='logo' className={style.img} />
       <form className={style.form}>
         <h2 className={style.title}>Регистрация</h2>
-        <label className={style.label}>
-          <input type='text' className={style.input} placeholder='Ваше имя' />
-        </label>
-        <label className={style.label}>
-          <input type='text' className={style.input} placeholder='Ваш email' />
-        </label>
-        <PasswordInput />
-        <PasswordInput />
+        <InputUI type='text' placeholder='Ваше имя' width={450} />
+        <InputUI type='text' placeholder='Ваше email' width={450} />
+        <InputUI type='password' placeholder='Пароль' width={450} />
+        <InputUI type='password' placeholder='Повторите пароль' width={450} />
         <button className={style.formBtn}>Зарегестрироваться</button>
       </form>
     </div>

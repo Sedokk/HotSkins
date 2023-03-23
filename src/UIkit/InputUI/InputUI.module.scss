@@ -8,6 +8,7 @@
   align-items: center;
   justify-content: center;
   gap: 0 20px;
+  cursor: text;
   .input {
     font-family: "Rubik";
     font-style: normal;
@@ -28,5 +29,14 @@
         color: transparent;
       }
     }
+  }
+  .clearBtn {
+    cursor: pointer;
+    & + * {
+      margin-left: -8px;
+    }
+  }
+  .visibleBtn {
+    cursor: pointer;
   }
 }

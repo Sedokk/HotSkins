@@ -1,11 +1,13 @@
 import React from "react"
 import style from "./LoginModalForm.module.scss"
-import Input from "../../../../UIkit/Input/Input"
+import InputUI from "../../../../UIkit/InputUI/InputUI"
 
 const LoginModalForm = () => {
   return (
     <form className={style.form}>
-      <Input type='text' placeholder='Your login' />
+      <InputUI type='text' placeholder='Ваш логин' />
+      <InputUI type='password' placeholder='Пароль' />
+      <button className={style.btn}>Войти</button>
     </form>
   )
 }
