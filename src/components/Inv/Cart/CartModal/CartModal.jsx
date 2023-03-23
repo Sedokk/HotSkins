@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useLayoutEffect } from "react"
 import { useCart } from "../../../../store"
 import style from "./CartModal.module.scss"
 
@@ -6,6 +6,13 @@ const CartModal = () => {
   const { setDeleteModalIsOpen } = useCart((state) => ({
     setDeleteModalIsOpen: state.setDeleteModalIsOpen,
   }))
+  useLayoutEffect(() => {
+    document.body.style.overflowY = "hidden"
+
+    return () => {
+      document.body.style.overflowY = "auto"
+    }
+  }, [])
   return (
     <div className={style.outlay}>
       <div className={style.modal}>

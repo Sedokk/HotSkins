@@ -3,26 +3,21 @@ import { useCart } from "../../../store"
 import style from "./Cart.module.scss"
 import CartLayout from "./CartLayout/CartLayout"
 import CartModal from "./CartModal/CartModal"
+import DeleteBtn from "./DeleteBtn/DeleteBtn"
 import Results from "./Results/Results"
 
 const Cart = () => {
-  const { cart, deleteModalIsOpen, setDeleteModalIsOpen } = useCart(
-    (state) => ({
-      cart: state.cart,
-      setDeleteModalIsOpen: state.setDeleteModalIsOpen,
-      deleteModalIsOpen: state.deleteModalIsOpen,
-    })
-  )
+  const { cart, deleteModalIsOpen } = useCart((state) => ({
+    cart: state.cart,
+    deleteModalIsOpen: state.deleteModalIsOpen,
+  }))
   return (
     <section className={`container ${style.cart}`}>
       {deleteModalIsOpen && <CartModal />}
       <div className={style.itemsContainer}>
         <div className={style.itemsContainerTop}>
           <h2 className={style.cartTitle}>Обмен преметов</h2>
-          <button
-            className={style.deleteBtn}
-            onClick={() => setDeleteModalIsOpen(true)}
-          ></button>
+          <DeleteBtn />
         </div>
         {cart.length > 0 ? (
           <div className={style.itemsWrapper}>

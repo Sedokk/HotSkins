@@ -1,7 +1,8 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
+import ModalContainer from "../../UIkit/ModalContainer/ModalContainer"
 import style from "./Header.module.scss"
-import LoginModal from "./LoginModal/LoginModal"
+import LoginModalContent from "./LoginModalContent/LoginModalContent"
 
 const Header = () => {
   const [modalOpen, setModalOpen] = useState(false)
@@ -22,7 +23,11 @@ const Header = () => {
       <button className={style.loginBtn} onClick={() => setModalOpen(true)}>
         Войти
       </button>
-      {modalOpen && <LoginModal setModalOpen={setModalOpen} />}
+      {modalOpen && (
+        <ModalContainer setOpened={setModalOpen}>
+          <LoginModalContent setModalOpen={setModalOpen} />
+        </ModalContainer>
+      )}
     </header>
   )
 }
