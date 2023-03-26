@@ -1,19 +1,27 @@
 import React, { useState } from "react"
 import { useCart } from "../../../store"
+import ModalContainer from "../../../UIkit/ModalContainer/ModalContainer"
 import style from "./Cart.module.scss"
 import CartLayout from "./CartLayout/CartLayout"
-import CartModal from "./CartModal/CartModal"
+import CartModalContent from "./CartModalContent/CartModalContent"
 import DeleteBtn from "./DeleteBtn/DeleteBtn"
 import Results from "./Results/Results"
 
 const Cart = () => {
-  const { cart, deleteModalIsOpen } = useCart((state) => ({
-    cart: state.cart,
-    deleteModalIsOpen: state.deleteModalIsOpen,
-  }))
+  const { cart, deleteModalIsOpen, setDeleteModalIsOpen } = useCart(
+    (state) => ({
+      cart: state.cart,
+      deleteModalIsOpen: state.deleteModalIsOpen,
+      setDeleteModalIsOpen: state.setDeleteModalIsOpen,
+    })
+  )
   return (
     <section className={`container ${style.cart}`}>
-      {deleteModalIsOpen && <CartModal />}
+      {deleteModalIsOpen && (
+        <ModalContainer setOpened={setDeleteModalIsOpen}>
+          <CartModalContent />
+        </ModalContainer>
+      )}
       <div className={style.itemsContainer}>
         <div className={style.itemsContainerTop}>
           <h2 className={style.cartTitle}>Обмен преметов</h2>

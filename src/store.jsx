@@ -92,6 +92,13 @@ const useCart = create(
     clearCart: () => {
       set({ cart: [] })
     },
+    onClearCart: (arr) => {
+      if (arr.length > 0) {
+        set({ cart: get().cart.filter((e) => !e.selected) })
+      } else {
+        get().clearCart()
+      }
+    },
     setCartIsOpened: (bool) => {
       set({ cartIsOpened: bool })
     },
