@@ -27,7 +27,12 @@ const SortSelector = () => {
     <div className={style.selectWrapper}>
       <button className={style.selectBtn} onClick={(e) => setOpened(!opened)}>
         <span className={style.selectedText}>Выбранное</span>
-        <img src='./img/icons/arrow.svg' alt='arrow' />
+        <img
+          src='./img/icons/arrow.svg'
+          alt='arrow'
+          style={{ transform: `rotate(${opened ? "-180deg" : "0"})` }}
+          className={style.arrow}
+        />
         {opened && (
           <div className={style.optionsWrapper}>
             {sortTypes.map((e) => (

@@ -4,6 +4,19 @@ import WeaponItem from "../WeaponItem/WeaponItem"
 import { arrayFilter, sortItems } from "../../../../modules"
 import style from "./WeaponLayout.module.scss"
 
+const NotFound = ({ text }) => {
+  return (
+    <div className={style.notFound}>
+      <img
+        src='./img/other/bigLoop.png'
+        alt='no items'
+        style={{ width: "300px" }}
+      />
+      <p>{text}</p>
+    </div>
+  )
+}
+
 const WeaponLayout = () => {
   const { textFilter, onlyHotPrices, dotaFilters, csgoFilters, sortType } =
     useFilters((state) => ({
@@ -20,39 +33,27 @@ const WeaponLayout = () => {
   const filters = currentGame === "CSGO" ? csgoFilters : dotaFilters
   const filtered =
     data &&
-    data.filter((e) =>
-      arrayFilter(e, filters, textFilter, onlyHotPrices, currentGame)
+    sortItems(
+      data.filter((e) =>
+        arrayFilter(e, filters, textFilter, onlyHotPrices, currentGame)
+      ),
+      sortType
     )
-  const sorted = data && sortItems(filtered, sortType)
   return (
     <>
       {data ? (
-        data.filter((e) => e.game === currentGame).length > 0 ? (
+        data.some((e) => e.game === currentGame) ? (
           filtered.length > 0 ? (
             <div className={style.weaponWrapper}>
-              {sorted.map((e) => (
+              {filtered.map((e) => (
                 <WeaponItem data={e} key={e.id} />
               ))}
             </div>
           ) : (
-            <div className={style.notFound}>
-              <img
-                src='./img/other/bigLoop.png'
-                alt='no items'
-                style={{ width: "300px" }}
-              />
-              <p>По выбранным вами параметрам ничего не найдено ಥ_ಥ</p>
-            </div>
+            <NotFound text='По выбранным вами параметрам ничего не найдено ಥ_ಥ' />
           )
         ) : (
-          <div className={style.notFound}>
-            <img
-              src='./img/other/bigLoop.png'
-              alt='no items'
-              style={{ width: "300px" }}
-            />
-            <p>К сожалению, у вас нет преметов из выбранной вами игры ಥ_ಥ</p>
-          </div>
+          <NotFound text='К сожалению, у вас нет преметов из выбранной вами игры ಥ_ಥ' />
         )
       ) : (
         <h1>Loading...</h1>

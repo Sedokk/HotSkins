@@ -1,10 +1,11 @@
 import React, { useState } from "react"
 import style from "./InputUI.module.scss"
 
-const InputUI = ({ type, placeholder, width }) => {
+const InputUI = ({ type, placeholder, width, name }) => {
   const [visible, setVisible] = useState(false)
   const [value, setValue] = useState("")
   const inputType = type === "text" ? "text" : visible ? "text" : "password"
+  name = name || ""
   return (
     <label className={style.label} style={{ width: width + "px" || "400px" }}>
       <input
@@ -13,6 +14,7 @@ const InputUI = ({ type, placeholder, width }) => {
         placeholder={placeholder}
         value={value}
         onChange={(ev) => setValue(ev.target.value)}
+        name={name}
       />
       {value && (
         <img

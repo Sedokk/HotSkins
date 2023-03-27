@@ -128,8 +128,13 @@ const useCart = create(
   }))
 )
 
-const useAuth = create((set, get) => ({
-  user: true,
-}))
+const useAuth = create(
+  devtools((set, get) => ({
+    user: "",
+    setUser: (user) => {
+      set({ user: user })
+    },
+  }))
+)
 
 export { useItems, useFilters, useCart, useAuth }
