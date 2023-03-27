@@ -1,18 +1,18 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { useFilters, useItems } from "../../../../store"
 import WeaponItem from "../WeaponItem/WeaponItem"
-import { arrayFilter } from "../../../../modules"
+import { arrayFilter, sortItems } from "../../../../modules"
 import style from "./WeaponLayout.module.scss"
 
 const WeaponLayout = () => {
-  const { textFilter, onlyHotPrices, dotaFilters, csgoFilters } = useFilters(
-    (state) => ({
+  const { textFilter, onlyHotPrices, dotaFilters, csgoFilters, sortType } =
+    useFilters((state) => ({
       textFilter: state.textFilter,
       onlyHotPrices: state.onlyHotPrices,
       dotaFilters: state.dotaFilters,
       csgoFilters: state.csgoFilters,
-    })
-  )
+      sortType: state.sortType,
+    }))
   const { data, currentGame } = useItems((state) => ({
     data: state.data,
     currentGame: state.currentGame,
@@ -23,13 +23,14 @@ const WeaponLayout = () => {
     data.filter((e) =>
       arrayFilter(e, filters, textFilter, onlyHotPrices, currentGame)
     )
+  const sorted = data && sortItems(filtered, sortType)
   return (
     <>
       {data ? (
         data.filter((e) => e.game === currentGame).length > 0 ? (
           filtered.length > 0 ? (
             <div className={style.weaponWrapper}>
-              {filtered.map((e) => (
+              {sorted.map((e) => (
                 <WeaponItem data={e} key={e.id} />
               ))}
             </div>

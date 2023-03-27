@@ -1,0 +1,63 @@
+.selectWrapper {
+  .selectBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0 10px;
+    position: relative;
+    background-color: inherit;
+    .selectedText {
+      font-family: "Rubik";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 20px;
+      color: #ffffff;
+    }
+    .optionsWrapper {
+      background: #20222a;
+      width: 150px;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: calc(100% + 8px);
+      z-index: 10;
+      border-radius: 10px;
+      border: 1px solid #3d4554;
+      padding: 5px 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px 0;
+      .option {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        &:hover {
+          .optionSelected {
+            background-color: #3d4554;
+          }
+        }
+        .optionText {
+          font-family: "Rubik";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 14px;
+          color: #ffffff;
+        }
+        .optionSelected {
+          border-radius: 50%;
+          width: 8px;
+          height: 8px;
+          background-color: transparent;
+          transition: 0.1s ease;
+          &.selected {
+            background-color: #f4c038;
+          }
+        }
+      }
+    }
+  }
+}

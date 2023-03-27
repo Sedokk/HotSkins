@@ -30,6 +30,7 @@ const useFilters = create(
       csgoFilters: [],
       textFilter: "",
       onlyHotPrices: false,
+      sortType: "low price",
       setTextFilter: (ev) => {
         set({ textFilter: ev.target.value })
       },
@@ -66,6 +67,9 @@ const useFilters = create(
       },
       hotPricesHandler: (ev) => {
         set({ onlyHotPrices: ev.target.checked })
+      },
+      setSortType: (type) => {
+        set({ sortType: type })
       },
     }),
     {

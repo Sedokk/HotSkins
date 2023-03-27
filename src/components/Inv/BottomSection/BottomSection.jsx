@@ -1,6 +1,7 @@
 import React from "react"
 import AddAllBtn from "./addAllBtn/addAllBtn"
 import style from "./BottomSection.module.scss"
+import SortSelector from "./SortSelector/SortSelector"
 import WeaponLayout from "./WeaponLayout/WeaponLayout"
 
 const BottomSection = () => {
@@ -8,7 +9,7 @@ const BottomSection = () => {
     <section className={style.bottomSection + " container"}>
       <div className={style.filterWrapper}>
         <AddAllBtn />
-        <span className={style.filter}>По цене</span>
+        <SortSelector />
       </div>
       <WeaponLayout />
     </section>

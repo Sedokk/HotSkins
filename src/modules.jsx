@@ -8,7 +8,7 @@ const getCSGOColor = (rarity) => {
       return "#CF309C"
     case "restricted":
       return "#8533ED"
-    case "mil-spec":
+    case "milSpec":
       return "#275CE4"
     case "industrial":
       return "#6AB2F4"
@@ -56,4 +56,78 @@ const declination = (num = 0) => {
   else return `${num} предметов`
 }
 
-export { getCSGOColor, getDOTAColor, arrayFilter, declination }
+const sortItems = (items, type) => {
+  const dic = {
+    extraordinary: [],
+    covert: [],
+    classified: [],
+    restricted: [],
+    milSpec: [],
+    industrial: [],
+    consumer: [],
+    arcana: [],
+    immortal: [],
+    legendary: [],
+    mythical: [],
+    rare: [],
+    uncommon: [],
+    common: [],
+  }
+  let res
+  switch (type) {
+    case "low price":
+      res = items.sort((a, b) => a.price - b.price)
+      break
+    case "high price":
+      res = items.sort((a, b) => b.price - a.price)
+      break
+    case "high rarity":
+      for (let item of items) {
+        dic[item?.rarity].push(item)
+      }
+      res = [
+        ...dic.arcana,
+        ...dic.extraordinary,
+        ...dic.immortal,
+        ...dic.covert,
+        ...dic.legendary,
+        ...dic.classified,
+        ...dic.mythical,
+        ...dic.restricted,
+        ...dic.rare,
+        ...dic.milSpec,
+        ...dic.uncommon,
+        ...dic.industrial,
+        ...dic.common,
+        ...dic.consumer,
+      ]
+      break
+    case "low rarity":
+      for (let item of items) {
+        dic[item?.rarity].push(item)
+      }
+      res = [
+        ...dic.common,
+        ...dic.consumer,
+        ...dic.uncommon,
+        ...dic.industrial,
+        ...dic.rare,
+        ...dic.milSpec,
+        ...dic.mythical,
+        ...dic.restricted,
+        ...dic.legendary,
+        ...dic.classified,
+        ...dic.immortal,
+        ...dic.covert,
+        ...dic.arcana,
+        ...dic.extraordinary,
+      ]
+      break
+    default:
+      res = items
+      break
+  }
+  return res
+}
+
+export { getCSGOColor, getDOTAColor, arrayFilter, declination, sortItems }
