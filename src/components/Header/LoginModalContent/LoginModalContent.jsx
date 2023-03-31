@@ -1,12 +1,14 @@
 import React from "react"
 import LoginModalForm from "./LoginModalForm/LoginModalForm"
 import style from "./LoginModalContent.module.scss"
-const LoginModalContent = ({ setModalOpen }) => {
+import { useAuth } from "../../../store"
+const LoginModalContent = () => {
+  const setLoginModalOpened = useAuth((state) => state.setLoginModalOpened)
   return (
     <div className={style.modal}>
       <button
         className={style.close}
-        onClick={() => setModalOpen(false)}
+        onClick={() => setLoginModalOpened(false)}
       ></button>
       <div className={style.images}>
         <img

@@ -130,10 +130,14 @@ const useCart = create(
 
 const useAuth = create(
   devtools((set, get) => ({
-    user: "",
-    setUser: (user) => {
-      set({ user: user })
+    loginModalOpened: false,
+    setLoginModalOpened: (bool) => {
+      set({ loginModalOpened: bool })
     },
+    // user: "",
+    // setUser: (user) => {
+    //   set({ user: user })
+    // },
   }))
 )
 

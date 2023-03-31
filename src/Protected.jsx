@@ -1,11 +1,19 @@
-import React from "react"
-import { Navigate } from "react-router-dom"
-import { useAuth } from "./store"
+import { onAuthStateChanged } from "firebase/auth"
+import React, { useState } from "react"
+import { useNavigate } from "react-router-dom"
+import { auth } from "./firebase"
 
 const Protected = ({ children }) => {
-  const user = useAuth((state) => state.user)
-  if (!user) return <Navigate to='/' />
-  return children
+  const [elem, setElem] = useState(<h2>Loading...</h2>)
+  const navigate = useNavigate()
+  onAuthStateChanged(auth, (userData) => {
+    if (userData) setElem(children)
+    else {
+      setElem(<h2>Loading...</h2>)
+      navigate("/")
+    }
+  })
+  return elem
 }
 
 export default Protected
