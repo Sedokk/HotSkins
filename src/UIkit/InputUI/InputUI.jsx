@@ -1,26 +1,41 @@
 import React, { useState } from "react"
 import style from "./InputUI.module.scss"
 
-const InputUI = ({ type, placeholder, width, name }) => {
+const InputUI = ({
+  type,
+  placeholder,
+  width,
+  name,
+  error,
+  onChange,
+  reset,
+}) => {
   const [visible, setVisible] = useState(false)
   const [value, setValue] = useState("")
   const inputType = type === "text" ? "text" : visible ? "text" : "password"
   name = name || ""
   return (
     <label className={style.label} style={{ width: width + "px" || "400px" }}>
+      {error && <span className={style.error}>{error.message}</span>}
       <input
         type={inputType}
         className={style.input}
         placeholder={placeholder}
         value={value}
-        onChange={(ev) => setValue(ev.target.value)}
+        onChange={(ev) => {
+          setValue(ev.target.value)
+          onChange && onChange(ev)
+        }}
         name={name}
       />
       {value && (
         <img
           src='./img/icons/X.svg'
           role='button'
-          onClick={() => setValue("")}
+          onClick={() => {
+            setValue("")
+            reset && reset(name)
+          }}
           className={style.clearBtn}
         />
       )}
