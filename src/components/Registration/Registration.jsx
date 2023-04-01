@@ -1,14 +1,20 @@
+import { createUserWithEmailAndPassword } from "firebase/auth"
 import React from "react"
 import { Controller, useForm } from "react-hook-form"
+import { useNavigate } from "react-router-dom"
+import { auth } from "../../firebase"
 import InputUI from "../../UIkit/InputUI/InputUI"
 import style from "./Registration.module.scss"
 
 const Registration = () => {
+  const navigate = useNavigate()
   const { control, handleSubmit, resetField } = useForm({
     mode: "onChange",
   })
   const onSubmit = (data) => {
-    console.log(data)
+    createUserWithEmailAndPassword(auth, data.email, data.password)
+      .then(() => navigate("/inv"))
+      .catch((err) => console.log(err))
   }
   return (
     <div className={style.wrapper + " container"}>
