@@ -1,14 +1,14 @@
 import { createUserWithEmailAndPassword } from "firebase/auth"
 import React from "react"
-import { Controller, useForm } from "react-hook-form"
+import { useForm } from "react-hook-form"
 import { useNavigate } from "react-router-dom"
 import { auth } from "../../firebase"
-import InputUI from "../../UIkit/InputUI/InputUI"
+import ValidatedInput from "../../UIkit/ValidatedInput/ValidatedInput"
 import style from "./Registration.module.scss"
 
 const Registration = () => {
   const navigate = useNavigate()
-  const { control, handleSubmit, resetField } = useForm({
+  const methods = useForm({
     mode: "onChange",
   })
   const onSubmit = (data) => {
@@ -19,29 +19,20 @@ const Registration = () => {
   return (
     <div className={style.wrapper + " container"}>
       <img src='./img/connectionLogo.png' alt='logo' className={style.img} />
-      <form className={style.form} onSubmit={handleSubmit(onSubmit)}>
+      <form className={style.form} onSubmit={methods.handleSubmit(onSubmit)}>
         <h2 className={style.title}>Регистрация</h2>
-        <Controller
-          control={control}
-          defaultValue=''
+        <ValidatedInput
+          {...methods}
           name='name'
-          rules={{ required: "This field is required" }}
-          render={({ field: { onChange, name }, fieldState: { error } }) => (
-            <InputUI
-              type='text'
-              placeholder='Ваше имя'
-              width={450}
-              onChange={onChange}
-              error={error}
-              reset={resetField}
-              name={name}
-            />
-          )}
+          type='text'
+          rules={{ required: "The field is required" }}
+          placeholder='Ваше имя'
+          width={450}
         />
-        <Controller
-          control={control}
-          defaultValue=''
+        <ValidatedInput
+          {...methods}
           name='email'
+          type='text'
           rules={{
             required: "This field is required",
             pattern: {
@@ -50,22 +41,13 @@ const Registration = () => {
               message: "Invalid email adress",
             },
           }}
-          render={({ field: { onChange, name }, fieldState: { error } }) => (
-            <InputUI
-              type='text'
-              placeholder='Ваш email'
-              width={450}
-              onChange={onChange}
-              error={error}
-              reset={resetField}
-              name={name}
-            />
-          )}
+          placeholder='Ваш email'
+          width={450}
         />
-        <Controller
-          control={control}
-          defaultValue=''
+        <ValidatedInput
+          {...methods}
           name='password'
+          type='text'
           rules={{
             required: "This field is required",
             pattern: {
@@ -75,38 +57,20 @@ const Registration = () => {
                 "You should use 6 or more characters with a mix of letters, numbers & symbols",
             },
           }}
-          render={({ field: { onChange, name }, fieldState: { error } }) => (
-            <InputUI
-              type='password'
-              placeholder='Пароль'
-              width={450}
-              onChange={onChange}
-              error={error}
-              reset={resetField}
-              name={name}
-            />
-          )}
+          placeholder='Пароль'
+          width={450}
         />
-        <Controller
-          control={control}
-          defaultValue=''
+        <ValidatedInput
+          {...methods}
           name='passwordRepeat'
+          type='text'
           rules={{
             required: "This field is required",
             validate: (value, field) =>
               value === field.password || "Your passwords must be the same",
           }}
-          render={({ field: { onChange, name }, fieldState: { error } }) => (
-            <InputUI
-              type='password'
-              placeholder='Повторите пароль'
-              width={450}
-              onChange={onChange}
-              error={error}
-              reset={resetField}
-              name={name}
-            />
-          )}
+          placeholder='Повторите пароль'
+          width={450}
         />
         <button className={style.formBtn}>Зарегестрироваться</button>
       </form>
