@@ -28,6 +28,7 @@ const Registration = () => {
           rules={{ required: "The field is required" }}
           placeholder='Ваше имя'
           width={450}
+          autocomplete='username'
         />
         <ValidatedInput
           {...methods}
@@ -43,6 +44,7 @@ const Registration = () => {
           }}
           placeholder='Ваш email'
           width={450}
+          autocomplete='email'
         />
         <ValidatedInput
           {...methods}
@@ -59,6 +61,7 @@ const Registration = () => {
           }}
           placeholder='Пароль'
           width={450}
+          autocomplete='new-password'
         />
         <ValidatedInput
           {...methods}
@@ -71,6 +74,7 @@ const Registration = () => {
           }}
           placeholder='Повторите пароль'
           width={450}
+          autocomplete='new-password'
         />
         <button className={style.formBtn}>Зарегестрироваться</button>
       </form>

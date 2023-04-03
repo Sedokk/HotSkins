@@ -1,4 +1,5 @@
 import React from "react"
+import HeaderMenu from "./HeaderMenu/HeaderMenu"
 import style from "./HeaderUnlocked.module.scss"
 const HeaderUnlocked = () => {
   return (
@@ -10,6 +11,7 @@ const HeaderUnlocked = () => {
           <li className={style.navItem}>История</li>
         </ul>
       </nav>
+      <HeaderMenu />
     </>
   )
 }

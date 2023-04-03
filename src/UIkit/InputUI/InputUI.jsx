@@ -9,6 +9,7 @@ const InputUI = ({
   error,
   onChange,
   reset,
+  autocomplete,
 }) => {
   const [visible, setVisible] = useState(false)
   const [value, setValue] = useState("")
@@ -27,6 +28,7 @@ const InputUI = ({
           onChange && onChange(ev)
         }}
         name={name}
+        autoComplete={autocomplete || ""}
       />
       {value && (
         <img

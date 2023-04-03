@@ -5,14 +5,14 @@ import { useAuth } from "../../../../store"
 import { useNavigate } from "react-router-dom"
 import { auth } from "../../../../firebase"
 import { signInWithEmailAndPassword } from "firebase/auth"
+import { useForm } from "react-hook-form"
 
 const LoginModalForm = () => {
-  const { setUser, setLoginModalOpened } = useAuth((state) => ({
+  const { setLoginModalOpened } = useAuth((state) => ({
     setLoginModalOpened: state.setLoginModalOpened,
-    setUser: state.setUser,
   }))
   const navigate = useNavigate()
-  const onSignIn = async (ev) => {
+  const onSignIn = (ev) => {
     ev.preventDefault()
     const login = ev.target.login.value
     const password = ev.target.password.value
@@ -25,8 +25,18 @@ const LoginModalForm = () => {
   }
   return (
     <form className={style.form} onSubmit={onSignIn}>
-      <InputUI type='text' placeholder='Ваш логин' name='login' />
-      <InputUI type='password' placeholder='Пароль' name='password' />
+      <InputUI
+        type='text'
+        placeholder='Ваш логин'
+        name='login'
+        autocomplete='email'
+      />
+      <InputUI
+        type='password'
+        placeholder='Пароль'
+        name='password'
+        autocomplete='current-password'
+      />
       <button type='submit' className={style.btn}>
         Войти
       </button>

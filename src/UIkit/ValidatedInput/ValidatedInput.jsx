@@ -10,6 +10,7 @@ const ValidatedInput = ({
   placeholder,
   resetField,
   width,
+  autocomplete,
 }) => {
   return (
     <Controller
@@ -26,6 +27,7 @@ const ValidatedInput = ({
           error={error}
           reset={resetField}
           name={name}
+          autocomplete={autocomplete}
         />
       )}
     />
