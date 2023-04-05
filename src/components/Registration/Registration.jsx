@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword } from "firebase/auth"
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth"
 import React from "react"
 import { useForm } from "react-hook-form"
 import { useNavigate } from "react-router-dom"
@@ -13,7 +13,12 @@ const Registration = () => {
   })
   const onSubmit = (data) => {
     createUserWithEmailAndPassword(auth, data.email, data.password)
-      .then(() => navigate("/inv"))
+      .then(() => {
+        updateProfile(auth.currentUser, {
+          displayName: data.name,
+        })
+        navigate("/inv")
+      })
       .catch((err) => console.log(err))
   }
   return (

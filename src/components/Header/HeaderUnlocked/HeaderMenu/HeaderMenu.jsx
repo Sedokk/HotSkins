@@ -2,6 +2,7 @@ import { signOut } from "firebase/auth"
 import React, { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { auth } from "../../../../firebase"
+import { useAuth } from "../../../../store"
 import style from "./HeaderMenu.module.scss"
 
 const HeaderMenu = () => {
@@ -25,7 +26,7 @@ const HeaderMenu = () => {
   return (
     <div className={style.wrapper} onClick={() => setOpened(!opened)} id='menu'>
       <div className={style.avatar}></div>
-      <span className={style.name}>Name</span>
+      <span className={style.name}>{"Undefined user"}</span>
       <img src='./img/icons/arrow.svg' alt='arrow' className={style.arrow} />
       {opened && (
         <div className={style.menu}>

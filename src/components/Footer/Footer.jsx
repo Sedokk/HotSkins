@@ -9,13 +9,19 @@ const Footer = () => {
       <nav className={style.nav}>
         <ul className={style.navList}>
           <li className={style.navItem}>
-            <Link className={style.navLink}>Помощь</Link>
+            <Link to='/' className={style.navLink}>
+              Помощь
+            </Link>
           </li>
           <li className={style.navItem}>
-            <Link className={style.navLink}>Контакты</Link>
+            <Link to='/inv' className={style.navLink}>
+              Контакты
+            </Link>
           </li>
           <li className={style.navItem}>
-            <Link className={style.navLink}>Пользовательское соглашение</Link>
+            <Link to='/inv' className={style.navLink}>
+              Пользовательское соглашение
+            </Link>
           </li>
         </ul>
       </nav>

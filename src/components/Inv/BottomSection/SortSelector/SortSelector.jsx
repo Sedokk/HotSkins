@@ -23,10 +23,11 @@ const sortTypes = ["high price", "low price", "high rarity", "low rarity"]
 
 const SortSelector = () => {
   const [opened, setOpened] = useState(false)
+  const sortType = useFilters((state) => state.sortType)
   return (
     <div className={style.selectWrapper}>
       <button className={style.selectBtn} onClick={(e) => setOpened(!opened)}>
-        <span className={style.selectedText}>Выбранное</span>
+        <span className={style.selectedText}>{sortType}</span>
         <img
           src='./img/icons/arrow.svg'
           alt='arrow'
