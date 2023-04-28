@@ -1,9 +1,10 @@
-import React from "react"
+import React, { memo } from "react"
+import { shallow } from "zustand/shallow"
 import { useItems } from "../../../../store"
 import Checkbox from "./Checkbox/Checkbox"
 
 const CheckboxLayout = () => {
-  const currentGame = useItems((state) => state.currentGame)
+  const currentGame = useItems((state) => state.currentGame, shallow)
   const csgoItems = [
     {
       rarity: "extraordinary",
@@ -77,4 +78,4 @@ const CheckboxLayout = () => {
   )
 }
 
-export default CheckboxLayout
+export default memo(CheckboxLayout)

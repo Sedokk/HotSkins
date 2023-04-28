@@ -7,15 +7,10 @@ const useItems = create(
     currentGame: "CSGO",
     getData: async (URL, game) => {
       const res = await fetch(URL).then((json) => json.json())
-      set({
-        data: [
-          ...get().data,
-          ...res.map((e) => {
-            e.game = game
-            return e
-          }),
-        ],
-      })
+      return res
+    },
+    setData: (data) => {
+      set({ data: data })
     },
     setCurrentGame: (game) => {
       set({ currentGame: game })

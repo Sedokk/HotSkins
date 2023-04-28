@@ -3,10 +3,12 @@ import style from "./CartItem.module.scss"
 import { getCSGOColor, getDOTAColor } from "../../../../../modules"
 import { useCart } from "../../../../../store"
 import { Player } from "@lottiefiles/react-lottie-player"
+import { shallow } from "zustand/shallow"
 
 const CartItem = ({ data }) => {
   const { img, price, rarity, game, selected, id, hot } = data
-  const setSelected = useCart((state) => state.setSelected)
+  const setSelected = useCart((state) => state.setSelected, shallow)
+  console.log("item")
   return (
     <div
       className={`${style.item} ${selected ? style.active : ""}`}

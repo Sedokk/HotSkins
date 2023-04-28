@@ -1,16 +1,23 @@
 import React from "react"
 import { useCart, useItems } from "../../../store"
+import { shallow } from "zustand/shallow"
 import style from "./TopSection.module.scss"
 
 const TopSection = () => {
-  const { currentGame, setCurrentGame } = useItems((state) => ({
-    currentGame: state.currentGame,
-    setCurrentGame: state.setCurrentGame,
-  }))
-  const { cartIsOpened, setCartIsOpened } = useCart((state) => ({
-    setCartIsOpened: state.setCartIsOpened,
-    cartIsOpened: state.cartIsOpened,
-  }))
+  const { currentGame, setCurrentGame } = useItems(
+    (state) => ({
+      currentGame: state.currentGame,
+      setCurrentGame: state.setCurrentGame,
+    }),
+    shallow
+  )
+  const { cartIsOpened, setCartIsOpened } = useCart(
+    (state) => ({
+      setCartIsOpened: state.setCartIsOpened,
+      cartIsOpened: state.cartIsOpened,
+    }),
+    shallow
+  )
   return (
     <section className={"container " + style.topSection}>
       <div className={style.info}>

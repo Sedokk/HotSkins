@@ -1,13 +1,17 @@
 import React, { useLayoutEffect } from "react"
+import { shallow } from "zustand/shallow"
 import { useCart } from "../../../../store"
 import style from "./CartModalContent.module.scss"
 
 const CartModalContent = () => {
-  const { setDeleteModalIsOpen, cart, onClearCart } = useCart((state) => ({
-    setDeleteModalIsOpen: state.setDeleteModalIsOpen,
-    cart: state.cart,
-    onClearCart: state.onClearCart,
-  }))
+  const { setDeleteModalIsOpen, cart, onClearCart } = useCart(
+    (state) => ({
+      setDeleteModalIsOpen: state.setDeleteModalIsOpen,
+      cart: state.cart,
+      onClearCart: state.onClearCart,
+    }),
+    shallow
+  )
   useLayoutEffect(() => {
     document.body.style.overflowY = "hidden"
 
@@ -16,6 +20,7 @@ const CartModalContent = () => {
     }
   }, [])
   const selectedItems = cart.filter((e) => e.selected)
+  console.log("modal-content")
   return (
     <div className={style.modal}>
       <h3 className={style.title}>

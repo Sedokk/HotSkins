@@ -1,13 +1,17 @@
-import React from "react"
+import React, { memo } from "react"
 import { useFilters } from "../../../../store"
 import style from "./HotPrices.module.scss"
 import { Player } from "@lottiefiles/react-lottie-player"
+import { shallow } from "zustand/shallow"
 
 const HotPrices = () => {
-  const { onlyHotPrices, hotPricesHandler } = useFilters((state) => ({
-    onlyHotPrices: state.onlyHotPrices,
-    hotPricesHandler: state.hotPricesHandler,
-  }))
+  const { onlyHotPrices, hotPricesHandler } = useFilters(
+    (state) => ({
+      onlyHotPrices: state.onlyHotPrices,
+      hotPricesHandler: state.hotPricesHandler,
+    }),
+    shallow
+  )
   return (
     <label className={style.chekboxLabel}>
       <input
@@ -37,4 +41,4 @@ const HotPrices = () => {
   )
 }
 
-export default HotPrices
+export default memo(HotPrices)

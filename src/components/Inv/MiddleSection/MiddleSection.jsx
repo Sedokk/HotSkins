@@ -1,6 +1,7 @@
 import React from "react"
 import style from "./MiddleSection.module.scss"
 import { useFilters } from "../../../store"
+import { shallow } from "zustand/shallow"
 import CheckboxLayout from "./CheckboxLayout/CheckboxLayout"
 import HotPrices from "./HotPrices/HotPrices"
 
@@ -10,7 +11,8 @@ const MiddleSection = () => {
       textFilter: state.textFilter,
       setTextFilter: state.setTextFilter,
       deleteTextFilter: state.deleteTextFilter,
-    })
+    }),
+    shallow
   )
   return (
     <section className={style.middleSection + " container"}>

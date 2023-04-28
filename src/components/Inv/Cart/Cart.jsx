@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { shallow } from "zustand/shallow"
 import { useCart } from "../../../store"
 import ModalContainer from "../../../UIkit/ModalContainer/ModalContainer"
 import style from "./Cart.module.scss"
@@ -13,8 +14,10 @@ const Cart = () => {
       cart: state.cart,
       deleteModalIsOpen: state.deleteModalIsOpen,
       setDeleteModalIsOpen: state.setDeleteModalIsOpen,
-    })
+    }),
+    shallow
   )
+  console.log("cart")
   return (
     <section className={`container ${style.cart}`}>
       {deleteModalIsOpen && (

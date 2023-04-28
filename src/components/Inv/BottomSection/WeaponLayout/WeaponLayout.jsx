@@ -3,6 +3,7 @@ import { useFilters, useItems } from "../../../../store"
 import WeaponItem from "../WeaponItem/WeaponItem"
 import { arrayFilter, sortItems } from "../../../../modules"
 import style from "./WeaponLayout.module.scss"
+import { shallow } from "zustand/shallow"
 
 const NotFound = ({ text }) => {
   return (
@@ -19,17 +20,23 @@ const NotFound = ({ text }) => {
 
 const WeaponLayout = () => {
   const { textFilter, onlyHotPrices, dotaFilters, csgoFilters, sortType } =
-    useFilters((state) => ({
-      textFilter: state.textFilter,
-      onlyHotPrices: state.onlyHotPrices,
-      dotaFilters: state.dotaFilters,
-      csgoFilters: state.csgoFilters,
-      sortType: state.sortType,
-    }))
-  const { data, currentGame } = useItems((state) => ({
-    data: state.data,
-    currentGame: state.currentGame,
-  }))
+    useFilters(
+      (state) => ({
+        textFilter: state.textFilter,
+        onlyHotPrices: state.onlyHotPrices,
+        dotaFilters: state.dotaFilters,
+        csgoFilters: state.csgoFilters,
+        sortType: state.sortType,
+      }),
+      shallow
+    )
+  const { data, currentGame } = useItems(
+    (state) => ({
+      data: state.data,
+      currentGame: state.currentGame,
+    }),
+    shallow
+  )
   const filters = currentGame === "CSGO" ? csgoFilters : dotaFilters
   const filtered =
     data &&

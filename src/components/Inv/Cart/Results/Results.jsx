@@ -1,10 +1,11 @@
 import React from "react"
+import { shallow } from "zustand/shallow"
 import { declination } from "../../../../modules"
 import { useCart } from "../../../../store"
 import style from "./Results.module.scss"
 
 const Results = () => {
-  const cart = useCart((state) => state.cart)
+  const cart = useCart((state) => state.cart, shallow)
   const { sum, DOTA, CSGO } = cart.reduce(
     (acc, el) => {
       return {
@@ -19,6 +20,7 @@ const Results = () => {
       sum: 0,
     }
   )
+  console.log("results")
   return (
     <div className={style.results}>
       <div className={style.sumBlock}>

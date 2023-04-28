@@ -8,11 +8,17 @@ import Cart from "./Cart/Cart"
 
 const Inv = () => {
   const cartIsOpened = useCart((state) => state.cartIsOpened)
-  const getData = useItems((state) => state.getData)
+  const [getData, setData] = useItems((state) => [state.getData, state.setData])
   useEffect(() => {
-    getData("http://localhost:3001/CSGO", "CSGO")
-    getData("http://localhost:3001/DOTA", "DOTA")
-  }, [])
+    const doData = async () => {
+      const res = await Promise.all([
+        getData("http://localhost:3001/CSGO", "CSGO"),
+        getData("http://localhost:3001/DOTA", "DOTA"),
+      ])
+      setData(res.flat())
+    }
+    doData()
+  }, [getData, setData])
   return (
     <div className={style.wrapper}>
       <TopSection />

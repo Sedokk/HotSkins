@@ -1,17 +1,21 @@
 import { Player } from "@lottiefiles/react-lottie-player"
-import React from "react"
+import React, { memo } from "react"
+import { shallow } from "zustand/shallow"
 import { getCSGOColor, getDOTAColor } from "../../../../modules"
 import { useCart, useItems } from "../../../../store"
 import style from "./WeaponItem.module.scss"
 
 const WeaponItem = ({ data }) => {
   const { price, img, rarity, hot, id, game } = data
-  const currentGame = useItems((state) => state.currentGame)
-  const { cart, addToCart, removeFromCart } = useCart((state) => ({
-    cart: state.cart,
-    addToCart: state.addToCart,
-    removeFromCart: state.removeFromCart,
-  }))
+  const currentGame = useItems((state) => state.currentGame, shallow)
+  const { cart, addToCart, removeFromCart } = useCart(
+    (state) => ({
+      cart: state.cart,
+      addToCart: state.addToCart,
+      removeFromCart: state.removeFromCart,
+    }),
+    shallow
+  )
   const isInCart = () => {
     return cart.some((e) => e.id === id && e.game === game)
   }

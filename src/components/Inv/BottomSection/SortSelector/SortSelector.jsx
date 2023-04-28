@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { shallow } from "zustand/shallow"
 import { useFilters } from "../../../../store"
 import style from "./SortSelector.module.scss"
 
@@ -23,7 +24,7 @@ const sortTypes = ["high price", "low price", "high rarity", "low rarity"]
 
 const SortSelector = () => {
   const [opened, setOpened] = useState(false)
-  const sortType = useFilters((state) => state.sortType)
+  const sortType = useFilters((state) => state.sortType, shallow)
   return (
     <div className={style.selectWrapper}>
       <button className={style.selectBtn} onClick={(e) => setOpened(!opened)}>

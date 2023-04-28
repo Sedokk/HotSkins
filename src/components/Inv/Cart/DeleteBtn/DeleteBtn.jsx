@@ -1,14 +1,19 @@
 import React from "react"
+import { shallow } from "zustand/shallow"
 import { useCart } from "../../../../store"
 
 const DeleteBtn = () => {
-  const { setDeleteModalIsOpen, cart } = useCart((state) => ({
-    setDeleteModalIsOpen: state.setDeleteModalIsOpen,
-    cart: state.cart,
-  }))
+  const { setDeleteModalIsOpen, cart } = useCart(
+    (state) => ({
+      setDeleteModalIsOpen: state.setDeleteModalIsOpen,
+      cart: state.cart,
+    }),
+    shallow
+  )
   const btnHandler = () => {
     if (cart.length > 0) setDeleteModalIsOpen(true)
   }
+  console.log("delete")
   return (
     <button
       onClick={btnHandler}
