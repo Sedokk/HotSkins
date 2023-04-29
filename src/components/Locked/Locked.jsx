@@ -1,11 +1,11 @@
 import { Outlet } from "react-router-dom"
 import Footer from "../Footer/Footer"
-import HeaderUnlocked from "../Header/HeaderUnlocked/HeaderUnlocked"
-import style from "./App.module.scss"
-function App() {
+import HeaderLocked from "../Header/HeaderLocked/HeaderLocked"
+import style from "./Locked.module.scss"
+function Locked() {
   return (
     <div className={style.app}>
-      <HeaderUnlocked />
+      <HeaderLocked />
       <div className={style.content}>
         <Outlet />
       </div>
@@ -14,4 +14,4 @@ function App() {
   )
 }
 
-export default App
+export default Locked

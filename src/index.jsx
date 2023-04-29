@@ -7,27 +7,40 @@ import Registration from "./components/Registration/Registration"
 import Start from "./components/Start/Start"
 import "./index.scss"
 import Protected from "./Protected"
+import Locked from "./components/Locked/Locked"
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: (
+      <Protected>
+        <App />
+      </Protected>
+    ),
+    children: [
+      {
+        index: true,
+        element: <Inv />,
+      },
+    ],
+  },
+  {
+    path: "/start",
+    element: <Locked />,
     children: [
       {
         index: true,
         element: <Start />,
       },
+    ],
+  },
+  {
+    path: "/reg",
+    element: <Locked />,
+    children: [
       {
-        path: "/reg",
+        index: true,
         element: <Registration />,
-      },
-      {
-        path: "/inv",
-        element: (
-          <Protected>
-            <Inv />
-          </Protected>
-        ),
       },
     ],
   },

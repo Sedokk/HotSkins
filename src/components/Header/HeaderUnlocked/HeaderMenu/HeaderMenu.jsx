@@ -7,26 +7,17 @@ import style from "./HeaderMenu.module.scss"
 
 const HeaderMenu = () => {
   const [opened, setOpened] = useState(false)
+  const [user, setUser] = useAuth((st) => [st.user, st.setUser])
   const navigate = useNavigate()
   const onLeave = () => {
     signOut(auth)
-    navigate("/")
+    navigate("/start")
+    setUser("")
   }
-  // useEffect(() => {
-  //   const onClickOutsideMenu = (ev) => {
-  //     if (ev.target.id !== "menu") setOpened(false)
-  //   }
-  //   if (opened) {
-  //     window.addEventListener("click", onClickOutsideMenu)
-  //   } else {
-  //     window.removeEventListener("click", onClickOutsideMenu)
-  //   }
-  //   return () => window.removeEventListener("click", onClickOutsideMenu)
-  // }, [opened])
   return (
     <div className={style.wrapper} onClick={() => setOpened(!opened)} id='menu'>
       <div className={style.avatar}></div>
-      <span className={style.name}>{"Undefined user"}</span>
+      <span className={style.name}>{user.displayName || "Undefined user"}</span>
       <img src='./img/icons/arrow.svg' alt='arrow' className={style.arrow} />
       {opened && (
         <div className={style.menu}>

@@ -18,7 +18,7 @@ const LoginModalForm = () => {
     const password = ev.target.password.value
     signInWithEmailAndPassword(auth, login, password)
       .then(() => {
-        navigate("/inv")
+        navigate("/")
         setLoginModalOpened(false)
       })
       .catch((err) => console.log(err.message))

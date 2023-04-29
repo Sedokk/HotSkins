@@ -129,10 +129,10 @@ const useAuth = create(
     setLoginModalOpened: (bool) => {
       set({ loginModalOpened: bool })
     },
-    // user: "",
-    // setUser: (user) => {
-    //   set({ user: user })
-    // },
+    user: "",
+    setUser: (user) => {
+      set({ user: user })
+    },
   }))
 )
 
