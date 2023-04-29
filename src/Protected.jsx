@@ -3,9 +3,10 @@ import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { auth } from "./firebase"
 import { useAuth } from "./store"
+import Loading from "./UIkit/Loading/Loading"
 
 const Protected = ({ children }) => {
-  const [elem, setElem] = useState(<h2>Loading...</h2>)
+  const [elem, setElem] = useState(<Loading />)
   const setUser = useAuth((st) => st.setUser)
   const navigate = useNavigate()
   onAuthStateChanged(auth, (userData) => {
@@ -13,7 +14,7 @@ const Protected = ({ children }) => {
       setElem(children)
       setUser(userData)
     } else {
-      setElem(<h2>Loading...</h2>)
+      setElem(<Loading />)
       navigate("/start")
     }
   })
