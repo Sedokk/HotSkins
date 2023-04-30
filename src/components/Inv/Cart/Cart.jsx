@@ -17,7 +17,6 @@ const Cart = () => {
     }),
     shallow
   )
-  console.log("cart")
   return (
     <section className={`container ${style.cart}`}>
       {deleteModalIsOpen && (

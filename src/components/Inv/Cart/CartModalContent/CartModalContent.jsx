@@ -20,7 +20,6 @@ const CartModalContent = () => {
     }
   }, [])
   const selectedItems = cart.filter((e) => e.selected)
-  console.log("modal-content")
   return (
     <div className={style.modal}>
       <h3 className={style.title}>

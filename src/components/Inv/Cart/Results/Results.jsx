@@ -20,7 +20,6 @@ const Results = () => {
       sum: 0,
     }
   )
-  console.log("results")
   return (
     <div className={style.results}>
       <div className={style.sumBlock}>

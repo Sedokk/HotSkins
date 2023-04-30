@@ -13,7 +13,6 @@ const DeleteBtn = () => {
   const btnHandler = () => {
     if (cart.length > 0) setDeleteModalIsOpen(true)
   }
-  console.log("delete")
   return (
     <button
       onClick={btnHandler}

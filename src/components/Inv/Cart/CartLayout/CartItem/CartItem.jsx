@@ -8,7 +8,6 @@ import { shallow } from "zustand/shallow"
 const CartItem = ({ data }) => {
   const { img, price, rarity, game, selected, id, hot } = data
   const setSelected = useCart((state) => state.setSelected, shallow)
-  console.log("item")
   return (
     <div
       className={`${style.item} ${selected ? style.active : ""}`}
