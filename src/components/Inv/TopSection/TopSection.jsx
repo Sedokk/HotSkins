@@ -21,7 +21,7 @@ const TopSection = () => {
   return (
     <section className={"container " + style.topSection}>
       <div className={style.info}>
-        <h2 className={style.operation}>Пополнение счёта</h2>
+        <h2 className={style.operation}>Предметы</h2>
         <span className={style.accountInfo}>Steam | № 86968690484</span>
       </div>
       <div className={style.btnWrapper}>

@@ -1,0 +1,15 @@
+.btn {
+  font-family: "Rubik";
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #f4c038;
+  background: #20222a;
+  outline: transparent;
+  border-radius: 20px;
+  padding: 8px 20px;
+  transition: outline 0.2s ease;
+  &:hover {
+    outline: 1px solid rgba(244, 192, 56, 0.6);
+  }
+}

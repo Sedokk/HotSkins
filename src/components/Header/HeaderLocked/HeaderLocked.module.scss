@@ -20,6 +20,10 @@
   color: #20222a;
   padding: 6px 20px;
   margin: 0;
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: #ffd363;
+  }
 }
 .header {
   background-color: #20222a;

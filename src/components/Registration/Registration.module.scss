@@ -69,6 +69,10 @@
       line-height: 20px;
       padding: 14px 24px;
       color: #20222a;
+      transition: background-color 0.3s ease;
+      &:hover {
+        background-color: #ffd363;
+      }
     }
   }
 }

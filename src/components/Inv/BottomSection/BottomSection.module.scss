@@ -1,19 +1,11 @@
 .bottomSection {
   background: #20222a;
   flex-grow: 1;
-  padding: 24px 0 40px;
+  padding: 14px 0 40px;
   min-height: 410px;
   .filterWrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    .filter {
-      font-family: "Rubik";
-      font-style: normal;
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 20px;
-      color: #ffffff;
-    }
   }
 }

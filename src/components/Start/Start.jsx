@@ -7,7 +7,7 @@ const Start = () => {
     <div className={style.wrapper + " container"}>
       <div className={style.contentWrapper}>
         <h1 className={style.bigSign}>
-          Принимайте платежи от пользователей с помощью скинов CS:GO и DOTA 2
+          Продавайте, меняйте и покупайте скины CS:GO и DOTA 2
         </h1>
         <Link to='/reg' className={style.btn}>
           Присоединиться
