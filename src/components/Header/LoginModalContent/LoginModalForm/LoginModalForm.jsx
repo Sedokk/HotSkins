@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import style from "./LoginModalForm.module.scss"
 import InputUI from "../../../../UIkit/InputUI/InputUI"
 import { useAuth } from "../../../../store"
@@ -11,6 +11,7 @@ const LoginModalForm = () => {
   const { setLoginModalOpened } = useAuth((state) => ({
     setLoginModalOpened: state.setLoginModalOpened,
   }))
+  const [error, setError] = useState("")
   const navigate = useNavigate()
   const onSignIn = (ev) => {
     ev.preventDefault()
@@ -21,7 +22,22 @@ const LoginModalForm = () => {
         navigate("/")
         setLoginModalOpened(false)
       })
-      .catch((err) => console.log(err.message))
+      .catch((err) => {
+        switch (err.code) {
+          case "auth/invalid-email":
+            setError("Неверный логин")
+            break
+          case "auth/internal-error":
+            setError("Internal error")
+            break
+          case "auth/wrong-password":
+            setError("Неверный пароль")
+            break
+          default:
+            console.log(err.code)
+            break
+        }
+      })
   }
   return (
     <form className={style.form} onSubmit={onSignIn}>
@@ -37,6 +53,7 @@ const LoginModalForm = () => {
         name='password'
         autocomplete='current-password'
       />
+      {error && <span className={style.error}>{error}</span>}
       <button type='submit' className={style.btn}>
         Войти
       </button>

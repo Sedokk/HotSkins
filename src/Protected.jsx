@@ -5,7 +5,7 @@ import { auth } from "./firebase"
 import { useAuth } from "./store"
 import Loading from "./UIkit/Loading/Loading"
 
-const Protected = ({ children }) => {
+const Protected = ({ children, returnIf, returnTo }) => {
   const [elem, setElem] = useState(<Loading />)
   const setUser = useAuth((st) => st.setUser)
   const navigate = useNavigate()
@@ -14,7 +14,6 @@ const Protected = ({ children }) => {
       setElem(children)
       setUser(userData)
     } else {
-      setElem(<Loading />)
       navigate("/start")
     }
   })

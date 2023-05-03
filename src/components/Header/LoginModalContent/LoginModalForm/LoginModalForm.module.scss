@@ -4,6 +4,27 @@
   align-items: center;
   justify-content: center;
   gap: 20px 0;
+  .error {
+    align-self: flex-start;
+    margin-left: 20px;
+    font-family: "Rubik";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    color: rgb(206, 43, 14);
+    position: relative;
+    padding-left: 30px;
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 20px;
+      height: 20px;
+      background-image: url("./img/icons/attention.svg");
+      left: 0;
+      top: 2px;
+    }
+  }
   .btn {
     background: #f4c038;
     border-radius: 50px;
@@ -16,6 +37,7 @@
     padding: 14px 0;
     width: 100%;
     transition: background-color 0.3s ease;
+    position: relative;
     &:hover {
       background-color: #ffd363;
     }
