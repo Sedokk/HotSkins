@@ -1,8 +1,11 @@
 import React from "react"
-import HeaderMenu from "./HeaderMenu/HeaderMenu"
 import style from "./HeaderUnlocked.module.scss"
 import { Link } from "react-router-dom"
+import { useMediaQuery } from "react-responsive"
+import FlattedNavigation from "./FlattedNavigation/FlattedNavigation"
+import BurgerNavigation from "./BurgerNavigation/BurgerNavigation"
 const HeaderUnlocked = () => {
+  const isBurger = useMediaQuery({ maxWidth: 820 })
   return (
     <header className={style.header + " container"}>
       <Link to='/'>
@@ -11,14 +14,7 @@ const HeaderUnlocked = () => {
           <img src='./img/logo/logoText.svg' alt='label' />
         </div>
       </Link>
-      <nav className={style.nav}>
-        <ul className={style.navList}>
-          <li className={style.navItem}>Помощь</li>
-          <li className={style.navItem}>Контакты</li>
-          <li className={style.navItem}>История</li>
-        </ul>
-      </nav>
-      <HeaderMenu />
+      {!isBurger ? <FlattedNavigation /> : <BurgerNavigation />}
     </header>
   )
 }
